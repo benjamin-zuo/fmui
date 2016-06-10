@@ -1,0 +1,29 @@
+<div class="fm-flexbox">
+    <div class="fm-flexbox-item">
+        <button type="button" class="fm-button blue" data-action="success">Success</button>
+    </div>
+    <div class="fm-flexbox-item">
+        <button type="button" class="fm-button blue" data-action="fail">Fail</button>
+    </div>
+</div>
+<div class="fm-flexbox">
+    <div class="fm-flexbox-item">
+        <button type="button" class="fm-button blue" data-action="loading">Loading</button>
+    </div>
+    <div class="fm-flexbox-item">
+        <button type="button" class="fm-button blue" data-action="network">Network</button>
+    </div>
+</div>
+<div class="fm-flexbox">
+    <div class="fm-flexbox-item">
+        <button type="button" class="fm-button blue" data-action="none">type=none</button>
+    </div>
+</div>
+
+#script()
+    require(['./toast.js'])
+#end
+
+
+
+

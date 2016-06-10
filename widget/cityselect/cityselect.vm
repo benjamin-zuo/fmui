@@ -1,0 +1,20 @@
+<form id="form">
+    <div class="fm-list">
+        <div class="fm-list-item" id="citySelector" data-options="{'province': {'code': 640000},'city': {'code': 140200},'district': {'code': 140400}}">
+                <div class="fm-list-label">住宅地址</div>
+                <div class="fm-list-control">
+                    <span class="fm-cityselect-texts">请选择省、市、区</span>
+                </div>
+        </div>
+        <div class="fm-list-item" id="addressResident">
+                <div class="fm-list-label">居住地址</div>
+                <div class="fm-list-control">
+                    <span class="fm-cityselect-texts">请选择省、市、区（无默认值）</span>
+                </div>
+        </div>
+    </div>
+</form>
+
+#script()
+    require(['./cityselect.js'])
+#end 

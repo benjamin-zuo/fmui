@@ -1,0 +1,42 @@
+<div class="fm-flexbox">
+    <a class="fm-flexbox-item">
+        1 列
+    </a>
+</div>
+
+<div class="fm-flexbox">
+    <a class="fm-flexbox-item">
+        2 列
+    </a>
+    <a class="fm-flexbox-item">
+        2 列
+    </a>
+</div>
+
+<div class="fm-flexbox">
+    <a class="fm-flexbox-item">
+        3 列
+    </a>
+    <a class="fm-flexbox-item fm-item-ellipsis">
+        3 列3 列3 列3 列3 列3 列3 列3 列3 列3 列3 列3 列3 列3 列3 列3 列3 列3 列3 列3 列
+    </a>
+    <a class="fm-flexbox-item">
+        3 列
+    </a>
+</div>
+
+
+<div class="fm-flexbox">
+    <a class="fm-flexbox-item">
+        4 列
+    </a>
+    <a class="fm-flexbox-item">
+        4 列
+    </a>
+    <a class="fm-flexbox-item">
+        4 列
+    </a>
+    <a class="fm-flexbox-item">
+        4 列
+    </a>
+</div>

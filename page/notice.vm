@@ -1,0 +1,7 @@
+#set($title="Notice 顶部提示")
+
+#extends("layout.vm")
+    #block("body_content")
+        #widget("/widget/notice/notice.vm")
+    #end
+#end

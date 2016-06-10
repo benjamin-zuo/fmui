@@ -1,0 +1,73 @@
+@charset 'UTF-8';
+@import '/static/helper/mixin';
+@import '/static/helper/function';
+
+
+.fm-cityselect {
+    font-size: 12px;
+    position: fixed;
+    width: 100%;
+    z-index: 200;
+    top: 0;
+    left: 100%;
+    overflow: hidden;
+
+    -webkit-overflow-scrolling: touch;
+
+    &[data-mode=province] {
+        color: #9f9f9f;
+        background-color: #fff;
+    }
+
+    &[data-mode=city] {
+        color: #9f9f9f;
+        background-color: #fff;
+    }
+
+    &[data-mode=district] {
+        color: #9f9f9f;
+        background-color: #fff;
+    }
+
+    /* 标题 */
+    &-title {
+        height: 24px;
+        line-height: 24px;
+        padding-left: 10px;
+        color: #4d4d4d;
+        background-color: #f7f7f7;
+    }
+
+    &-content {
+        overflow: auto;
+
+        li {
+            line-height: 36px;
+
+            height: 36px;
+            padding-left: 10px;
+
+            border-bottom: 1px solid #dbdbdb;
+
+            &.province-selected {
+                color: #4d4d4d;
+                background-color: #efefef;
+            }
+
+            &.city-selected {
+                color: #4d4d4d;
+                background-color: #e6e6e6;
+            }
+
+            &.district-selected {
+                color: #fff;
+                background-color: #dadbdb;
+            }
+        }
+    }
+
+    &-placeholder {
+        color: #a9a9a9;
+    }
+}
+

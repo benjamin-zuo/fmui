@@ -1,0 +1,11 @@
+#set($title="Form 表单")
+
+#extends("layout.vm")
+
+    #block("body_content")
+    
+        #widget("/widget/form/form.vm")
+
+    #end
+
+#end

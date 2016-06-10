@@ -1,0 +1,3 @@
+#script()
+    require('./signature');
+#end

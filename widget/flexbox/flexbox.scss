@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors      Benjamin (cuew1987@gmail.com)
+ * @link         https://github.com/benjamin-zuo
+ * @date         2016-03-01 19:32:26
+ * @description  
+ * @version      $Id$
+ */
+
+.fm-flexbox {
+    padding: 10px 0;
+}
+
+.fm-flexbox-item {
+    line-height: 44px;
+
+    border-radius: 3px;
+
+    background-color: #ccc;
+
+    text-align: center;
+
+    color: #333;
+}

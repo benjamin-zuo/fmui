@@ -1,0 +1,15 @@
+<div class="fm-dialog">
+    <% if(title) {%>
+    <div class="fm-dialog-header">
+        <h3 class="fm-dialog-title">
+            <%=title%>
+        </h3>    
+    </div>
+    <% } %>
+    <div class="fm-dialog-body">
+        <%=content%>
+    </div>
+    <%if(buttons){ %>
+    <div class="fm-dialog-footer"></div>
+    <%}%>
+</div>

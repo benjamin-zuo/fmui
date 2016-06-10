@@ -1,0 +1,21 @@
+<div class="fm-notice" id="test">
+    <div class="fm-notice-content">珍爱信用，如实填写，我们承诺对您的信息绝对保密</div>
+    <div class="fm-notice-operation">
+        <span class="fm-notice-operation-close"></span>
+    </div>
+</div>
+
+<div class="fm-notice">
+    <div class="fm-notice-content">该密码可用于申请或体现</div>
+    <div class="fm-notice-operation">
+        <a class="fm-notice-operation-linkto" href="#">点击处理</a>
+    </div>
+</div>
+
+
+<div class="fm-notice">
+    <div class="fm-notice-content">该密码可用于申请或体现该密码可用于申请或体现该密码可用于申请或体现该密码可用于申请或体现</div>
+    <div class="fm-notice-operation">
+        <span class="fm-notice-operation-close"></span>
+    </div>
+</div> 

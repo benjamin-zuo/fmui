@@ -1,0 +1,7 @@
+#set($title="Switch 滑动开关")
+
+#extends("layout.vm")
+    #block("body_content")
+        #widget("/widget/switch/switch.vm")
+    #end
+#end

@@ -1,0 +1,19 @@
+<div class="fm-list">
+    <div class="fm-list-header">倒计时</div>
+    <div class="fm-list-body">
+        <a href="#" class="fm-list-item">
+            <div class="fm-list-content">
+                <div id="demo1" data-options="{'leftTime': 3600}"></div>
+            </div>
+        </a>
+        <a href="#" class="fm-list-item">
+            <div class="fm-list-content">
+                <div id="demo2" data-options="{'leftTime': 86400000}"></div>
+            </div>
+        </a>
+    </div>
+</div>
+
+#script()
+    require('./countdown');
+#end

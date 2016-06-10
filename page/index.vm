@@ -1,0 +1,11 @@
+#set($title="组件集合")
+
+#extends("layout.vm")
+
+    #block("body_content")
+    
+        #widget("/widget/index/index.vm")
+
+    #end
+
+#end

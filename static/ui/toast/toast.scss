@@ -1,0 +1,91 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors      Benjamin (cuew1987@gmail.com)
+ * @link         https://github.com/benjamin-zuo
+ * @date         2016-03-04 14:38:37
+ * @description  Toast 组件 
+ */
+
+@import '../../helper/css3';
+@import '../../helper/function';
+
+@-webkit-keyframes rotate-loading {
+    0% {
+        @include rotate(0deg);
+    }
+    50% {
+        @include rotate(180deg);
+    }
+    100% {
+        @include rotate(360deg);
+    }
+}
+@keyframes rotate-loading {
+    0% {
+        @include rotate(0deg);
+    }
+    50% {
+        @include rotate(180deg);
+    }
+    100% {
+        @include rotate(360deg);
+    }
+}
+
+.fm-toast {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    margin-left: -55px;
+    min-height: 40px;
+
+    &-only-content {
+        width: percent(548px);  
+        margin-left: percent(-274px);
+        .fm-toast-body {
+            width: 100%;
+            padding: 15px 10px;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+    }
+
+    &-body {
+        display: inline-block;
+        width: 90px;
+        padding: 20px 10px;
+        border-radius: 3px;
+        opacity: .8;
+        
+        font-size: 15px;
+        color: #fff;
+        text-align: center;
+        background-color: #1f2337;
+        word-break: break-all;
+    }
+
+    &-icon {
+        display: block;
+        width: 36px;
+        height: 36px;
+        margin: 0 auto 12px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+
+        &.icon-toast-success {
+            background-image: url(./icon-success.png?__inline); 
+        } 
+        &.icon-toast-fail {
+            background-image: url(./icon-fail.png?__inline); 
+        }
+        &.icon-toast-loading {
+            @include animation(rotate-loading linear 2.6s infinite);
+            background-image: url(./icon-loading.png?__inline);  
+        }
+        &.icon-toast-network {
+            background-image: url(./icon-network.png?__inline);   
+        }
+    }
+}
+

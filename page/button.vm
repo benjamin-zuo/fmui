@@ -1,0 +1,11 @@
+#set($title="Button集合")
+
+#extends("layout.vm")
+
+    #block("body_content")
+    
+        #widget("/widget/button/button.vm")
+
+    #end
+
+#end

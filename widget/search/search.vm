@@ -1,0 +1,15 @@
+
+<div class="fm-search">
+    <div class="fm-search-input">
+        <div class="fm-icon-search-wrapper">
+            <span class="fm-icon-search"></span>
+        </div>
+        <input class="fm-search-text" type="text" placeholder="搜索">
+        <div class="fm-search-clear">
+            <span class="fm-icon-clear tiny"></span>
+        </div>
+    </div>
+    <div class="fm-search-btn">
+        <button type="button">取消</button>
+    </div>
+</div>

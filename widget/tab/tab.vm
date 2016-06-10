@@ -1,0 +1,16 @@
+<div class="fm-tab" id="fm-tabs">
+    <div class="fm-tab-title">
+        <div class="fm-tab-title-item">选项一</div>
+        <div class="fm-tab-title-item">选项二</div>
+        <div class="fm-tab-title-item">选项三</div>
+    </div>
+    <div class="fm-tab-content">
+        <div class="fm-tab-content-item bg1">内容一</div>
+        <div class="fm-tab-content-item bg2">内容二</div>
+        <div class="fm-tab-content-item bg3">内容三</div>
+    </div>
+</div>
+
+#script()
+    require(['./tab.js'])
+#end

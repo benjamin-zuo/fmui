@@ -1,0 +1,22 @@
+#* 
+<div class="fm-dialog">
+    <div class="fm-dialog-header">
+        <h3 class="fm-dialog-title">
+            我是标题
+        </h3>    
+    </div>
+
+    <div class="fm-dialog-body">
+        我是内容我是内容
+    </div>
+
+    <div class="fm-dialog-footer">
+        <button type="button" class="fm-dialog-button">取消</button>
+        <button type="button" class="fm-dialog-button">确定</button>
+    </div>
+</div> *#
+
+
+#script()
+    require('./dialog');
+#end

@@ -1,0 +1,11 @@
+#set($title="Dialog 弹窗")
+
+#extends("layout.vm")
+
+    #block("body_content")
+    
+        #widget("/widget/dialog/dialog.vm")
+
+    #end
+
+#end

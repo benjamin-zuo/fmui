@@ -1,0 +1,11 @@
+#set($title="Search 组件")
+
+#extends("layout.vm")
+
+    #block("body_content")
+    
+        #widget("/widget/search/search.vm")
+
+    #end
+
+#end

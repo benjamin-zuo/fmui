@@ -1,0 +1,11 @@
+#set($title="Cityselect 省/市/区三级联动")
+
+#extends("layout.vm")
+
+    #block("body_content")
+    
+        #widget("/widget/cityselect/cityselect.vm")
+
+    #end
+
+#end

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors      Benjamin (cuew1987@gmail.com)
+ * @link         https://github.com/benjamin-zuo
+ * @date         2016-03-22 11:37:56
+ * @description  Validate表单校验
+ */
+
+.fm-validate {
+    .fm-list-control {
+        input,
+        select,
+        .fm-cityselect-placeholder {
+            color: #ff3c3c;
+        }
+    }
+    .fm-icon-clear {
+        background-color: #ff3c3c;
+    }
+}

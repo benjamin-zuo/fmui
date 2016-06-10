@@ -1,0 +1,11 @@
+#set($title="Tab 列表")
+
+#extends("layout.vm")
+
+    #block("body_content")
+    
+        #widget("/widget/toast/toast.vm")
+
+    #end
+
+#end

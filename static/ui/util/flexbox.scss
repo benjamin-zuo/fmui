@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors      Benjamin (cuew1987@gmail.com)
+ * @link         https://github.com/benjamin-zuo
+ * @date         2016-02-26 18:05:50
+ * @description  Flexbox弹性布局
+ */
+
+
+@import '../../helper/css3';
+@import '../../helper/mixin';
+
+
+.fm-flexbox {
+    @include display-flex();
+
+    @include align-items();
+
+    &-item {
+        @include flex(1);
+
+        // 行内元素兼容增加block
+        display: block;
+        
+        margin-left: 8px;
+        min-width: 20px;
+        overflow: hidden;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        /* 溢出隐藏 */
+        &.fm-item-ellipsis {
+            width: auto;
+            @include ellipsis();
+        }
+    }
+}

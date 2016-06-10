@@ -1,0 +1,185 @@
+<div class="fm-list">
+    <div class="fm-list-header">复选框样式一(通用样式)</div>
+    <div class="fm-list-body">
+        <div class="fm-list-item fm-list-item-checkbox">
+            <div class="fm-list-content">文本内容文本内容文本内容文本内容</div>
+            <div class="fm-checkbox">
+                <input type="checkbox">
+                <span class="fm-icon-checkbox"></span>
+            </div>
+        </div>
+
+        <div class="fm-list-item fm-list-item-checkbox">
+            <div class="fm-list-content">文本内容文本内容文本内容文本内容</div>
+            <div class="fm-checkbox">
+                <input type="checkbox" name="ck-username" value="1" checked>
+                <span class="fm-icon-checkbox"></span>
+            </div>
+        </div>
+
+        <div class="fm-list-item fm-list-item-checkbox">
+            <div class="fm-list-content">文本内容文本内容文本内容文本内容</div>
+            <div class="fm-checkbox">
+                <input type="checkbox" name="ck-username" checked>
+                <span class="fm-icon-checkbox"></span>
+            </div>
+        </div>
+    <div class="fm-list-footer">文本说明文本说明</div>
+</div>
+
+
+<div class="fm-list fm-list-icon24">
+    <div class="fm-list-header">复选框样式二(icon=24px)</div>
+    <div class="fm-list-body">
+        <a href="#" class="fm-list-item fm-list-item-checkbox">
+            <div class="fm-list-icon">
+                <img src="/static/img/list/lin.png" width="24" height="24">
+            </div>
+            <div class="fm-list-content">文本内容文本内容文本内容文本内容</div>
+            <div class="fm-checkbox">
+                <input type="checkbox" name="ck-username" checked>
+                <span class="fm-icon-checkbox"></span>
+            </div>
+        </a>
+        <a href="#" class="fm-list-item fm-list-item-checkbox">
+            <div class="fm-list-icon">
+                <img src="/static/img/list/lin.png" width="24" height="24">
+            </div>
+            <div class="fm-list-content">文本内容文本内容文本内容文本内容</div>
+            <div class="fm-checkbox">
+                <input type="checkbox" name="ck-username" checked>
+                <span class="fm-icon-checkbox"></span>
+            </div>
+        </a>
+    </div>
+    <div class="fm-list-footer">文本说明文本说明</div>
+</div>
+
+<div class="fm-list fm-list-multi">
+    <div class="fm-list-header">复选框样式三(双行)</div>
+    <div class="fm-list-body">
+        <a href="#" class="fm-list-item fm-list-item-checkbox">
+            <div class="fm-list-content">
+                <div class="fm-list-title">标题-默认不能取消选中</div>
+                <div class="fm-list-brief">简介描述</div>
+            </div>
+            <div class="fm-checkbox">
+                <input type="checkbox" name="ck-username" disabled checked>
+                <span class="fm-icon-checkbox"></span>
+            </div>
+        </a>
+        <a href="#" class="fm-list-item fm-list-item-checkbox">
+            <div class="fm-list-content">
+                <div class="fm-list-title">标题</div>
+                <div class="fm-list-brief">简介描述</div>
+            </div>
+            <div class="fm-checkbox">
+                <input type="checkbox" name="ck-username" checked>
+                <span class="fm-icon-checkbox"></span>
+            </div>
+        </a>
+    </div>
+    <div class="fm-list-footer">文本说明文本说明</div>
+</div>
+
+
+<div class="fm-list fm-list-multi-thumb">
+    <div class="fm-list-header">复选框样式四(双行组合)</div>
+    <div class="fm-list-body">
+        <a href="#" class="fm-list-item fm-list-item-checkbox">
+            <div class="fm-list-thumb">
+                <img src="/static/img/list/lin.png" width="42" height="42">
+            </div>
+            <div class="fm-list-content">
+                <div class="fm-list-title">标题</div>
+                <div class="fm-list-brief">简介描述</div>
+            </div>
+            <div class="fm-checkbox">
+                <input type="checkbox" name="ck-username" disabled checked>
+                <span class="fm-icon-checkbox"></span>
+            </div>
+        </a>
+        <a href="#" class="fm-list-item fm-list-item-checkbox">
+            <div class="fm-list-thumb">
+                <img src="/static/img/list/lin.png" width="42" height="42">
+            </div>
+            <div class="fm-list-content">
+                <div class="fm-list-title">标题</div>
+                <div class="fm-list-brief">简介描述</div>
+            </div>
+            <div class="fm-checkbox">
+                <input type="checkbox" name="ck-username" checked>
+                <span class="fm-icon-checkbox"></span>
+            </div>
+        </a>
+    </div>
+    <div class="fm-list-footer">文本说明文本说明</div>
+</div>
+
+
+<div class="fm-list">
+    <div class="fm-list-header">单选框样式一(通用样式)</div>
+    <div class="fm-list-body">
+        <div class="fm-list-item fm-list-item-checkbox">
+            <div class="fm-list-content">我是单选框，我是单选框</div>
+            <div class="fm-checkbox">
+                <input type="radio" name="sex" value="1">
+                <span class="fm-icon-checkbox"></span>
+            </div>
+        </div>
+
+        <div class="fm-list-item fm-list-item-checkbox">
+            <div class="fm-list-content">我是单选框，我是单选框</div>
+            <div class="fm-checkbox">
+                <input type="radio" name="sex" value="2" checked>
+                <span class="fm-icon-checkbox"></span>
+            </div>
+        </div>
+
+        <div class="fm-list-item fm-list-item-checkbox">
+            <div class="fm-list-content">我是单选框，我是单选框</div>
+            <div class="fm-checkbox">
+                <input type="radio" name="sex" value="3">
+                <span class="fm-icon-checkbox"></span>
+            </div>
+        </div>
+    </div>
+    <div class="fm-list-footer">文本说明文本说明</div>
+</div>
+
+
+<div class="fm-checkbox-headeer">无checkbox</div>
+<div class="fm-chekebox-agree">
+    <div class="fm-checkbox">
+        <label class="fm-checkbox-label">同意</label>
+    </div>
+    <a href="#" target="_blank">征信授权协议</a>
+</div>
+<div class="fm-checkbox-headeer">默认</div>
+<div class="fm-chekebox-agree">
+    <div class="fm-checkbox">
+        <input type="checkbox" name="ck-username" >
+        <span class="fm-icon-checkbox"></span>
+        <label class="fm-checkbox-label">同意</label>
+    </div>
+    <a href="#" target="_blank">征信授权协议</a>
+</div>
+<div class="fm-checkbox-headeer">选中</div>
+<div class="fm-chekebox-agree">
+    <div class="fm-checkbox">
+        <input type="checkbox" name="ck-username" checked>
+        <span class="fm-icon-checkbox"></span>
+        <label class="fm-checkbox-label">同意</label>
+    </div>
+    <a href="#" target="_blank">征信授权协议</a>
+</div>
+<div class="fm-checkbox-headeer">不能取消选中</div>
+<div class="fm-chekebox-agree">
+    <div class="fm-checkbox">
+        <input type="checkbox" name="ck-username" disabled checked>
+        <span class="fm-icon-checkbox"></span>
+        <label class="fm-checkbox-label">同意</label>
+    </div>
+    <a href="#" target="_blank">征信授权协议</a>
+</div>
+

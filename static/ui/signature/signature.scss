@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors      Benjamin (cuew1987@gmail.com)
+ * @link         https://github.com/benjamin-zuo
+ * @date         2016-05-24 11:34:18
+ */
+
+@import '/static/helper/mixin';
+@import '/static/helper/css3';
+
+.fm-signature {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    
+    &-canvas {
+        padding: 10px;
+        height: 90%;
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            font-size: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.02) inset; 
+        }
+    }
+
+    &-footer {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        padding: 0 10px 5px;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        button:first-child {
+            margin-right: 10px;
+        }    
+    }
+
+    &-eg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #000;
+        opacity: .6;
+        @include display-flex();
+        @include justify-content(center);
+
+        &-content {        
+            text-align: center;
+            @include align-self(center);
+        }
+        &-img {
+            width: 90px;
+            height: 192px;
+            margin-bottom: 80px;
+        }
+        &-caption {
+            font-size: 18px;
+            color: #fff;
+        }
+    }
+}

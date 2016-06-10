@@ -1,0 +1,28 @@
+<div class="fm-list">
+    <div class="fm-list-header">switch 滑动开关</div>
+    <div class="fm-list-body">
+        <div class="fm-list-item">
+            <div class="fm-list-content">选中状态</div>
+            <div class="fm-switch">
+                <input type="checkbox" class="fm-switch-checkbox" id="ck01" checked>
+                <label class="fm-switch-label" for="ck01"></label>
+            </div>
+        </div>
+
+        <div class="fm-list-item">
+            <div class="fm-list-content">未选中状态</div>
+            <div class="fm-switch">
+                <input type="checkbox" class="fm-switch-checkbox" id="ck02">
+                <label class="fm-switch-label" for="ck02"></label>
+            </div>
+        </div>
+
+        <div class="fm-list-item">
+            <div class="fm-list-content">禁用状态</div>
+            <div class="fm-switch">
+                <input type="checkbox" class="fm-switch-checkbox" id="ck03" disabled>
+                <label class="fm-switch-label" for="ck03"></label>
+            </div>
+        </div>
+    <div class="fm-list-footer">文本说明文本说明</div>
+</div>

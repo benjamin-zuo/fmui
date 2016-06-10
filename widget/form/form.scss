@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors      Benjamin (cuew1987@gmail.com)
+ * @link         https://github.com/benjamin-zuo
+ * @date         2016-02-29 13:54:15
+ * @description  
+ * @version      $Id$
+ */
+
+.border-image-1px {
+    width: 100px;
+    height: 50px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-width: 0 0 1px 0px;
+    -webkit-border-image: url("http://maxzhang.github.io/examples/border1px/border.png") 2 0 stretch;
+    border-image: url("http://maxzhang.github.io/examples/border1px/border.png") 2 0 stretch;
+}

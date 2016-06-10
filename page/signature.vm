@@ -1,0 +1,11 @@
+#set($title="Signature 电子签名")
+
+#extends("layout.vm")
+
+    #block("body_content")
+    
+        #widget("/widget/signature/signature.vm")
+
+    #end
+
+#end

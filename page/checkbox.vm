@@ -1,0 +1,11 @@
+#set($title="Checkbox 单复选框")
+
+#extends("layout.vm")
+
+    #block("body_content")
+    
+        #widget("/widget/checkbox/checkbox.vm")
+
+    #end
+
+#end

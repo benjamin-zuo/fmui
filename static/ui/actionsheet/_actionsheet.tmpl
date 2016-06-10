@@ -1,0 +1,12 @@
+<div class="fm-actionsheet">
+    <% if(items){ %>
+    <div class="fm-actionsheet-menu">
+        <% for(var key in items){if(items.hasOwnProperty(key)) {%>
+            <div class="fm-actionsheet-item" data-actionsheet="<%=key%>"><%=key%></div>
+        <%}}%>
+    </div>
+    <%}%>
+    <div class="fm-actionsheet-action">
+        <div class="fm-actionsheet-item" data-actionsheet='取消'>取消</div>
+    </div>
+</div>

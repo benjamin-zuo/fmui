@@ -1,0 +1,11 @@
+#set($title="Flexbox 伸缩盒")
+
+#extends("layout.vm")
+
+    #block("body_content")
+    
+        #widget("/widget/flexbox/flexbox.vm")
+
+    #end
+
+#end

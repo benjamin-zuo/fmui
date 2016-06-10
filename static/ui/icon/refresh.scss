@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors      Benjamin (cuew1987@gmail.com)
+ * @link         https://github.com/benjamin-zuo
+ * @date         2016-03-02 19:48:31
+ * @description  icon-refresh
+ */
+
+
+.fm-icon-refresh {
+    display: inline-block;
+    width: 18px;
+    height: 20px;
+    margin: 2px 3px;
+    overflow: hidden; 
+    background-image: url(./refresh.png?__inline);
+    -webkit-background-size: 18px auto;
+    background-size: 18px auto;
+
+}

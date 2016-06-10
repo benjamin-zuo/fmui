@@ -1,0 +1,26 @@
+<div class="fm-flexbox">
+    <div class="fm-flexbox-item">
+        <button type="button" class="fm-button blue" id="btn-click">ActionSheet上拉列表</button>
+    </div>
+</div>
+#* 
+<div class="fm-overlay"></div>
+<div class="fm-actionsheet">
+    <div class="fm-actionsheet-menu">
+        <div class="fm-actionsheet-item">选项一</div>
+        <div class="fm-actionsheet-item">选项二</div>
+        <div class="fm-actionsheet-item">选项三</div>
+    </div>
+    <div class="fm-actionsheet-action">
+        <div class="fm-actionsheet-item" id="fm-actionsheet-cancel">取消</div>
+    </div>
+</div> *#
+
+
+#script()
+    require(['./actionsheet'])
+#end
+
+
+
+

@@ -1,0 +1,126 @@
+<form id="form">
+    <div class="fm-list">
+        <div class="fm-list-header">Label 最多5个字font-size:16px</div>
+        <div class="fm-list-body">
+            <div class="fm-list-item">
+                <div class="fm-list-label">手机号码</div>
+                <div class="fm-list-control">
+                    <input type="tel" name="phone" id="phone" placeholder="请填写手机号码" maxlength="11" required>
+                </div>
+                <div class="fm-list-clear">
+                    <span class="fm-icon-clear"></span>
+                </div>
+            </div>
+            <div class="fm-list-item">
+                <div class="fm-list-label">身份证号</div>
+                <div class="fm-list-control">
+                    <input type="text" name="idcard" placeholder="请输入有效身份证号">
+                </div>
+                <div class="fm-list-clear">
+                    <span class="fm-icon-clear"></span>
+                </div>
+            </div>
+            <div class="fm-list-item fm-input-autoclear ">
+                <div class="fm-list-label">车辆编号</div>
+                <div class="fm-list-control">
+                    <input type="text" name="carnum" placeholder="请输入机动车编号">
+                </div>
+                <div class="fm-list-clear">
+                    <span class="fm-icon-clear"></span>
+                </div>
+            </div>
+            <div class="fm-list-item">
+                <div class="fm-list-label">子女人数</div>
+                <div class="fm-list-control">
+                    <select name="children" class="selected" required>
+                        <option value="" disabled selected>请选择</option>
+                        <option value="1">1个</option>
+                        <option value="2">2个</option>
+                        <option value="3">3个</option>
+                        <option value="4">4个</option>
+                        <option value="5">5个</option>
+                    </select>
+                </div>
+                <div class="fm-list-arrow">
+                    <span class="fm-icon-arrow-down"></span>
+                </div>
+            </div>
+            <div class="fm-list-item">
+                <div class="fm-list-label">详细地址</div>
+                <div class="fm-list-control">
+                    <textarea placeholder="我是多行文本框" name="detailAddress"></textarea>
+                </div>
+                <div class="fm-list-clear">
+                    <span class="fm-icon-clear"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="fm-list-footer">文本说明文本说明</div>
+    </div>
+    <div class="fm-footer">
+        <button type="button" class="fm-button orange" id="btn-submit">提交</button>
+    </div>
+</form>
+
+<div class="fm-list">
+    <div class="fm-list-header">短信及图形校验码</div>
+    <div class="fm-list-body">
+        <div class="fm-list-item">
+            <div class="fm-list-label">校验码</div>
+            <div class="fm-list-control">
+                <input type="text" name="username" placeholder="输入短信校验码">
+            </div>
+            <div class="fm-list-clear">
+                <span class="fm-icon-clear"></span>
+            </div>
+            <div class="fm-list-captcha">
+                <button type="button" class="captcha-sms">发送校验码</button>
+            </div>
+        </div>
+        <div class="fm-list-item">
+            <div class="fm-list-label">校验码</div>
+            <div class="fm-list-control">
+                <input type="text" name="username" placeholder="输入短信校验码">
+            </div>
+            <div class="fm-list-clear">
+                <span class="fm-icon-clear"></span>
+            </div>
+            <div class="fm-list-captcha">
+                <button type="button" class="captcha-sms" disabled="disabled">30秒后重发</button>
+            </div>
+        </div>
+        <div class="fm-list-item">
+            <div class="fm-list-label">校验码</div>
+            <div class="fm-list-control">
+                <input type="text" name="username" placeholder="输入右侧校验码">
+            </div>
+            <div class="fm-list-clear">
+                <span class="fm-icon-clear"></span>
+            </div>
+            <div class="fm-list-captcha">
+                <img src="http://csd.58.com/checkimage/get?uuid=CSD-IMAGE-CHECK-UUID-fb27514b-752e-4639-83ca-e1c0f82ed556&t=1456918828209" class="captcha-img">
+            </div>
+        </div>
+        <div class="fm-list-item">
+            <div class="fm-list-label">校验码</div>
+            <div class="fm-list-control">
+                <input type="text" name="username" placeholder="输入右侧校验码">
+            </div>
+            <div class="fm-list-clear">
+                <span class="fm-icon-clear"></span>
+            </div>
+            <div class="fm-list-captcha">
+                <button type="button" class="captcha-sms img-loading" disabled="disabled">加载中</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="fm-list-footer">文本说明文本说明</div>
+</div>
+
+<form id="form2"></form>
+
+#script()
+    require(['./form.js'])
+#end 

@@ -1,0 +1,105 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors      Benjamin (cuew1987@gmail.com)
+ * @link         https://github.com/benjamin-zuo
+ * @date         2016-02-29 13:24:34
+ * @description  button 按钮
+ */
+
+.fm-button {
+    display: inline-block;
+    width: 100%;
+    padding: 0 10px;
+    
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+    border-radius: 4px;
+
+    text-align: center;
+    
+    -webkit-background-clip: padding-box;
+    border: 0;
+    color: #fff;
+    outline: 0;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+    &.tiny {
+        height: 24px;
+        line-height: 25px;
+        font-size: 13px;
+        border-radius: 3px;
+    }
+
+    &.small {
+        height: 36px;
+        line-height: 36px;
+        font-size: 13px;
+        border-radius: 3px;
+    }
+
+    &.orange {
+        background-color: #ff552e;
+
+        &:active {
+            color: #fff;
+            background-color: #ff881a;
+        }
+    }
+
+    &.white {
+        color: #666;
+        border: 1px solid #e6e6e6;
+        background-color: #fff;
+
+        &.anchor {
+            color: #37acf4;
+        }
+
+        &:active {
+            border-color: #d8d8d8;
+            background-color: #d8d8d8;
+        }
+    }
+
+    &.blue {
+        background-color: #0ae;
+
+        &.light {
+            color: #0ae;
+            border: 1px solid #0ae;
+            background-color: #fff;
+        }
+
+        &:active {
+            color: #fff;
+            background-color: #0091cb;
+        }
+    }
+
+    &.disabled,
+    &[disabled] {
+        color: #d2d2d2;
+        background-color: #ebebf0;
+
+        &:active {
+            color: #d2d2d2;
+            background-color: #ebebf0;
+        }
+    }
+
+    &.fixed {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    &.noradius {
+        border-radius: 0;
+    }
+}

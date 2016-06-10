@@ -1,0 +1,11 @@
+#set($title="List 列表")
+
+#extends("layout.vm")
+
+    #block("body_content")
+    
+        #widget("/widget/list/list.vm")
+
+    #end
+
+#end
