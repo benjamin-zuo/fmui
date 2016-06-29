@@ -9,6 +9,7 @@ FMUI(Finance Mobile UI) 移动端（Mobile）组件库
 * [注意事项](#attention-list)
 * [文档示例](#document-demo)
 * [版本更新](#version-upadate)
+* [项目使用](#project-use)
 * [问题反馈](#question-feedback)
 * [作者简介](#author-introduce)
 * [版权许可](#copyright-license)
@@ -83,7 +84,13 @@ $('#citySelector, #addressResident').citySelect({
 
 <a name="version-upadate"></a>
 ## 版本更新
-`FMUI` 的版本方针遵循 [SemVer](http://semver.org/lang/zh-CN/) 规范，版本号采用 `主版本号.次版本号.修订号` 的格式。
+`FMUI` 的版本方针遵循 [SemVer](http://semver.org/lang/zh-CN/) 规范，版本号采用 `主版本号.次版本号.修订号` 的格式。详情请查看[changelog](https://github.com/benjamin-zuo/fmui/blob/master/changelog.md)
+
+<a name="project-use"></a>
+## 项目使用
+* [58车分期](http://chefenqi.58.com)
+* [58车商贷](http://csd.58.com)
+* [58车分期CRM](http://cfqm.58v5.cn)
 
 <a name="question-feedback"></a>
 ## 问题反馈
