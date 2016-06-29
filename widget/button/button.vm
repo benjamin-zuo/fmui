@@ -1,12 +1,23 @@
-
-
-
-<button type="button" class="fm-button orange">橙色 42px</button>
-<button type="button" class="fm-button blue">蓝色 42px</button>
-<button type="button" class="fm-button white">白色 42px</button>
-<button type="button" class="fm-button white anchor">白色 42px</button>
-<button type="button" class="fm-button white disabled" disabled>disabled 42px</button>
-
+<div class="fm-flexbox">
+    <div class="fm-flexbox-item">
+        <button type="button" class="fm-button blue">蓝色 42px</button>
+    </div>
+</div>
+<div class="fm-flexbox">
+    <div class="fm-flexbox-item">
+        <button type="button" class="fm-button white">白色 42px</button>
+    </div>
+</div>
+<div class="fm-flexbox">
+    <div class="fm-flexbox-item">
+        <button type="button" class="fm-button white anchor">白色 42px</button>
+    </div>
+</div>
+<div class="fm-flexbox">
+    <div class="fm-flexbox-item">
+        <button type="button" class="fm-button white disabled" disabled>disabled 42px</button>
+    </div>
+</div>
 <div class="fm-flexbox">
     <div class="fm-flexbox-item">
         <button type="button" class="fm-button light blue">蓝色 42px</button>

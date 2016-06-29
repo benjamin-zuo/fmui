@@ -9,7 +9,6 @@
 
 
 var fmui = require('/static/ui/core/fmui');
-    require('/static/ui/tooltip/tooltip');
 
 (function(fmui, $, undefined) {
     fmui.define('Validate', {
@@ -17,6 +16,7 @@ var fmui = require('/static/ui/core/fmui');
          * @property {Boolean}        required       是否必填项
          * @property {String|Array}   validType      校验类型
          * @property {String}         message        必填项提示信息
+         * @property {String}         closest        父容器selector
          * @property {Object}         rules          默认校验规则，可扩展
          */
         options: {
@@ -25,6 +25,8 @@ var fmui = require('/static/ui/core/fmui');
             validType: null,
 
             message: "该字段不能为空",
+
+            closest: '.fm-list-item',
 
             rules: {
                 tel: {
@@ -48,18 +50,19 @@ var fmui = require('/static/ui/core/fmui');
          */
         _init: function() {
             var me  = this,
+                opts = me._options,
                 $el = me.getEl(),
                 $item;
 
-            me._$item = $item = $el.closest('.fm-list-item');
+            me._$item = $item = $el.closest(opts.closest || '.fm-list-item');
 
             me.on('ready', function() {
                 $el.on('input.validate blur.validate', function(e) {
                     me._eventName = e.type;
                     me._validate();
                 }).on('focus.validate', function() {
-                    if($item.hasClass('fm-validate')) {
-                        $el.tooltip('show', me._errormsg);
+                    if($el.hasClass('fm-validate-red')) {
+                        $el.validateTooltip('show', me._errormsg);
                     }
                 });
             })   
@@ -169,7 +172,11 @@ var fmui = require('/static/ui/core/fmui');
          * @public
          */
         addError: function() {
-            this._$item && this._$item.addClass('fm-validate');
+            var me = this,
+                $el = me.getEl();
+
+            me._$item && me._$item.addClass('fm-validate');
+            $el.addClass('fm-validate-red');
         },
 
         /**
@@ -178,7 +185,11 @@ var fmui = require('/static/ui/core/fmui');
          * @public
          */
         removeError: function() {
-            this._$item && this._$item.removeClass('fm-validate');
+            var me = this,
+                $el = me.getEl();
+
+            me._$item && me._$item.removeClass('fm-validate');
+            $el.removeClass('fm-validate-red');
         },
 
         /**
@@ -192,6 +203,75 @@ var fmui = require('/static/ui/core/fmui');
             this._eventName = '';
             return this._validate();
         }
-    })
+    });
+
+
+    fmui.define('ValidateTooltip', {
+        _init: function() {
+            this._tooltipTmplFun = __inline('./_validateTooltip.tmpl');
+        },
+
+        /**
+         * 显示表单校验错误提示
+         * @method show
+         * @public
+         * @param  {Object} ele 当前对象
+         * @param  {String} msg 提示信息
+         * @return this
+         */
+        show: function(msg) {
+            var me = this,
+                $el = me.getEl(),
+                $tooltipTmpl, $item,$clear,$arrow,_tmplFun;
+
+            if( me.has() ) return;
+
+            me._$tooltipTmpl = $tooltipTmpl = $(me._tooltipTmplFun({msg: msg}));
+            me._$item = $item = $el.closest('.fm-list-item');
+
+            $clear = $item.find('.fm-list-clear');
+            $arrow = $tooltipTmpl.find('.fm-validate-tooltip-arrow');
+
+            $item.append($tooltipTmpl);
+
+            $arrow.css({
+                left: $clear.length ? ($clear.position().left + $clear.width() / 2 - $arrow.width() / 2 ) : $item.width() / 2
+            });
+
+            me._timeout = setTimeout(function() {
+                me.destroy();
+            }, 3000);
+        },
+
+        /**
+         * 销毁表单错误提示
+         * @method destroy
+         * @public
+         * @return this
+         */
+        destroy: function() {
+            var me = this,
+                $tooltipTmpl = me._$tooltipTmpl,
+                $item  = me._$item;
+
+            $tooltipTmpl && $tooltipTmpl.remove();
+
+            clearTimeout(me._timeout);
+
+            me._$tooltipTmpl = me._timeout = null;
+
+            return this.$super('destroy');
+        },
+
+        /**
+         * 是否有错误提示
+         * @method has
+         * @public
+         * @return {Boolean} true or false
+         */
+        has: function() {
+            return !!this._$tooltipTmpl;
+        }
+    });
 })(fmui, fmui.$);
 

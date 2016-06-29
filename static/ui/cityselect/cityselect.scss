@@ -1,73 +1,93 @@
 @charset 'UTF-8';
 @import '/static/helper/mixin';
 @import '/static/helper/function';
-
+@import '/static/helper/css3';
 
 .fm-cityselect {
-    font-size: 12px;
     position: fixed;
-    width: 100%;
     z-index: 200;
-    top: 0;
-    left: 100%;
+    top: 100%;
+    left: 0;
+    z-index: 101;
+
     overflow: hidden;
 
+    width: 100%;
+    max-height: 80%;
+
+    background-color: #fff;
+
     -webkit-overflow-scrolling: touch;
-
     &[data-mode=province] {
-        color: #9f9f9f;
-        background-color: #fff;
+        .arrow-left {
+            visibility: hidden;
+        }
     }
-
-    &[data-mode=city] {
-        color: #9f9f9f;
-        background-color: #fff;
-    }
-
-    &[data-mode=district] {
-        color: #9f9f9f;
-        background-color: #fff;
-    }
-
     /* 标题 */
-    &-title {
-        height: 24px;
+    &-header {
         line-height: 24px;
-        padding-left: 10px;
-        color: #4d4d4d;
-        background-color: #f7f7f7;
-    }
 
+        height: 24px;
+        padding: 10px 14px;
+
+        background-color: #f6f6f6;
+
+        @include display-flex();
+        .arrow-left {
+            width: 44px;
+            padding-top: 2px;
+            .fm-icon-arrow-left {
+                width: 16px;
+                height: 15px;
+                &:before {
+                    width: 16px;
+                    height: 15px;
+                    margin: -1px 0 0 4px;
+
+                    border-color: #555;
+                }
+            }
+        }
+        .title {
+            text-align: center;
+
+            @include flex(1);
+        }
+        .btn-cancel {
+            width: 44px;
+
+            text-align: right;
+
+            color: #37acf4;
+        }
+    }
+    &-title {
+        text-align: center;
+    }
     &-content {
         overflow: auto;
-
         li {
-            line-height: 36px;
+            &.pcd-selected {
+                &:after {
+                    position: absolute;
+                    right: 14px;
 
-            height: 36px;
-            padding-left: 10px;
+                    width: 10px;
+                    height: 6px;
+                    margin-top: 6px;
 
-            border-bottom: 1px solid #dbdbdb;
+                    content: '';
 
-            &.province-selected {
-                color: #4d4d4d;
-                background-color: #efefef;
-            }
+                    border: 1px solid #19b39c;
+                    border-top: 0 none;
+                    border-right: 0 none;
 
-            &.city-selected {
-                color: #4d4d4d;
-                background-color: #e6e6e6;
-            }
-
-            &.district-selected {
-                color: #fff;
-                background-color: #dadbdb;
+                    @include transform(rotate(-45deg));
+                }
             }
         }
     }
-
     &-placeholder {
         color: #a9a9a9;
     }
 }
-

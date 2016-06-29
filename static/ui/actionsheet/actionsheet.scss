@@ -2,9 +2,9 @@
     position: fixed;
     left: 0;
     bottom: 0;
+    z-index: 101;
 
     width: 100%;
-
     -webkit-transition: -webkit-transform .3s ease;
             transition:         transform .3s ease;
     -webkit-transform: translate3d(0, 100%, 0);

@@ -47,7 +47,7 @@ var fmui = require('/static/ui/core/fmui');
                 _map = {
                     success : '提交成功',
                     fail    : '提交失败',
-                    loading : '载入中',
+                    loading : '处理中',
                     network : '网络无法连接',
                     none: '---------'
                 };
@@ -83,8 +83,6 @@ var fmui = require('/static/ui/core/fmui');
             this._overlay && this._overlay.destroy();
 
             this._tmpl.remove();
-
-            this._tmpl = null;
 
             return this.$super('destroy');
         }

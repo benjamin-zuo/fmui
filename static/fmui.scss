@@ -9,13 +9,13 @@
 
 @import "./ui/reset/reset";
 
+@import "./ui/util/oocss";
 @import "./ui/util/flexbox";
 
 @import "./ui/icon/arrow";
 @import "./ui/icon/clear";
 @import "./ui/icon/refresh";
 @import "./ui/icon/search";
-
 @import "./ui/button/button";
 @import "./ui/checkbox/checkbox";
 @import "./ui/list/list";
@@ -25,12 +25,10 @@
 @import "./ui/toast/toast";
 @import "./ui/overlay/overlay";
 @import "./ui/switch/switch";
-@import "./ui/tooltip/tooltip";
 @import "./ui/validate/validate";
 @import "./ui/dialog/dialog";
 @import "./ui/actionsheet/actionsheet";
 @import "./ui/cityselect/cityselect";
-@import "./ui/agreement/agreement";
 @import "./ui/signature/signature";
 @import "./ui/footer/footer";
 

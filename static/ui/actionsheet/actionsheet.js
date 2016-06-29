@@ -15,24 +15,18 @@ require('/static/ui/overlay/overlay');
         isNotShared: true,
 
         /**
-         * @property {Object} items {'选项一': function(){}, '选项二': function(){}}
+         * 使用触发初始化建议使用click事件绑定元素触发
+         * 
+         * @property {Object} items 按钮键值对
+         * ```
+         * {
+         *     '选项一': function(){}, 
+         *     '选项二': function(){}
+         * }
+         * ```
          */
         options: {
-            'items': {}
-        },
-
-        /**
-         * 初始化
-         * @private
-         */
-        _init: function() {
-            var me = this,
-                opts = me._options,
-                tmplFun = __inline('./_actionsheet.tmpl');
-
-            me._$tmpl = $(tmplFun({
-                items: opts.items || {}
-            }));
+            'items': null
         },
 
         /**
@@ -42,40 +36,61 @@ require('/static/ui/overlay/overlay');
         _create: function() {
             var me = this,
                 opts = me._options,
-                $tmpl = me._$tmpl,
-                _handler = function() {
-                    $.support.cssTransitions ?
-                    $tmpl.on('transitionend webkitTransitionEnd', function() {
-                        me.destroy();
-                    }).removeClass('fm-actionsheet-toggle') :
-                    me.destroy();
-                };
+                tmplFun = __inline('./_actionsheet.tmpl'),
+                $tmpl = me._$tmpl = $(tmplFun({
+                    items: opts.items || {}
+                })),
+                _overlay = me._overlay = $.overlay({display: false});
 
-            // 创建弹窗
-            var _overlay = me._overlay = $.overlay();
-
-            $('body').append(me._$tmpl);
-
-            // reflow
-            $tmpl[0].clientLeft;
-
-            // 添加动画类
-            $tmpl.addClass('fm-actionsheet-toggle');
+            $('body').append($tmpl);
 
             // add 取消 callback
             opts.items['取消'] = function() {
-                _handler();
+                me.hide();
             };
 
-            // Overlay 绑定事件
             _overlay.getEl().on('click', function() {
-                _handler();
+                me.hide();
             });
 
-            $tmpl.on('click', '[data-actionsheet]', function() {
+            $tmpl.off().on('click', '[data-actionsheet]', function() {
                 var type = $(this).data('actionsheet');
                 opts.items[type] && opts.items[type].call(this, me);
             });
+        },
+
+        /**
+         * 显示上拉列表组件
+         * @method destroy
+         * @public
+         * @return {Self}
+         */
+        show: function() {
+            var me = this;
+            me._overlay.show();
+            me._$tmpl.addClass('fm-actionsheet-toggle');
+        },
+        
+        /**
+         * 隐藏上拉列表组件
+         * @method hide
+         * @public
+         * @return {Self}
+         */
+        hide: function() {
+            var me = this;
+                $tmpl = me._$tmpl;
+
+            me._overlay.hide();
+
+            $tmpl.removeClass('fm-actionsheet-toggle');
+            if($.support.cssTransitions) {
+                $tmpl.on('transitionend webkitTransitionEnd', function() {
+                    me.trigger('hide');
+                })
+            }else {
+                me.trigger('hide')
+            }
         },
 
         /**
@@ -95,6 +110,15 @@ require('/static/ui/overlay/overlay');
         }
 
         /**
+         *
+         * @event show
+         * @param {Event} e fmui.Event对象
+         * @description 上拉列表显示时触发
+         *
+         * @event show
+         * @param {Event} e fmui.Event对象
+         * @description 上拉列表隐藏时触发
+         * 
          * @event destroy
          * @param {Event} e fmui.Event对象
          * @description 上拉列表销毁时触发

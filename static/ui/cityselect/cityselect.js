@@ -1,5 +1,5 @@
 /**
- * @authors      Benjamin
+ * @authors      Benjamin,QuYing
  * @link         https://github.com/benjamin-zuo
  * @date         2016-04-18 13:22:54
  * @description  CitySelect城市选择三级联动
@@ -45,8 +45,9 @@ var fmui = require('/static/ui/core/fmui');
             },
             required: true,
             className: '.fm-cityselect-texts',
+            selectedClass: 'pcd-selected',
             placeholder: '请选择省市区',
-            duration: 300,
+            duration: 400,
             offsetLeft: 60
         },
         /**
@@ -60,20 +61,17 @@ var fmui = require('/static/ui/core/fmui');
                 $hiddens = me._$hiddens = $('<div class="fm-cityselect-hiddens"></div>');
 
             $el.append($hiddens);
+
             // 统一placeholder color
-            $el.find(opts.className).addClass('fm-cityselect-placeholder');
+            $el.find(opts.className).text(opts.placeholder).addClass('fm-cityselect-placeholder');
 
             me._tmplFun = __inline('./_cityselect.tmpl');
 
-            // __flag 标识用来区分，有data时的重复请求
-            me.__flag = true;
-
             // 绑定事件
             $el.on('click', function() {
+                me.__isLiClick = false;
                 // 软键盘处理
                 $('input').blur();
-
-                me.__flag = true;
 
                 // 软键盘兼容，延迟300ms
                 setTimeout(function() {
@@ -84,52 +82,196 @@ var fmui = require('/static/ui/core/fmui');
             });
 
             me.on('ready', function() {
-                ['province', 'city', 'district'].forEach(function(value, index) {
-                    opts[value].code && me._getData(value);
+                me.__isLiClick = false;
+                // 初始化
+                ['province', 'city', 'district'].forEach(function(type, index) {
+                    opts[type].code && me._getData(type);
                 });
                 
-                me._setValues();
-                me._setTexts();
+                me._setValues()._setTexts();
 
                 $(window).on($.support.orientation ? 'orientationchange' : 'resize', function(e) {
-                    me._layout();
+                    ['province', 'city', 'district'].forEach(function(type, index) {
+                        me._layout(type);
+                    });
                 });
             });
         },
+        /**
+         * 创建各级DOM
+         * @param  {String} type 省市级类型
+         * @private
+         */
+        _createDom: function(type) {
+            var me = this;
 
+            if (!type) {
+                me._setValues()._setTexts().destroy();
+                return;
+            }
+
+            var opts = me._options,
+                typeobj = opts[type] || {},
+                $module = typeobj['$module'],
+                pcdobj = {
+                    'province': 'city',
+                    "city": 'district',
+                    "district": ''
+                };
+
+            // 请求数据
+            me._getData(type);
+
+            if(typeobj.data) {
+                typeobj['$module'] = $module = $module ? $module : $(me._tmplFun( {title: typeobj.title} ) );
+
+                me._initList(type);
+
+                $module.attr('data-mode', type).appendTo('body');
+
+                me._layout(type);
+
+                // 绑定事件
+                $module.on('click', 'li', function() {
+                    var $this = $(this),
+                        value = $this.data('value'),
+                        className = opts.selectedClass,
+                        $dismodule;
+
+                    me.__isLiClick = true;
+
+                    typeobj.code = value;
+                    typeobj.text = typeobj.data[value];
+
+                    // 选中项
+                    $this.addClass(className).siblings().removeClass(className);
+
+                    // 级联操作
+                    me._createDom(pcdobj[type]);
+                })
+                // 取消
+                .on('click', '.btn-cancel', function() {
+                    me.destroy();
+                })
+                // 返回
+                .on('click', '.arrow-left', function() {
+                    type !== 'province' && ( me._removeModule(opts[type]), me._removeData(opts[type]) );
+                });
+            }else {
+                me._setValues()._setTexts().destroy();
+            }
+        },
+
+        /**
+         * 处理请求
+         * @private
+         * @param  {String} type 省市区类型
+         */
+        _getData: function(type) {
+            var me = this,
+                opts = me._options,
+                typeobj = opts[type],
+                codeObj = {
+                    province: '',
+                    city: opts['province'].code,
+                    district: opts['city'].code
+                };
+
+            (!typeobj.data || me.__isLiClick) && 
+            $.ajax({
+                type: 'POST',
+                url: opts.url,
+                data: {
+                    type: type,
+                    // 此处code需要处理
+                    code: codeObj[type]
+                },
+                dataType: 'json',
+                async: false
+            })
+            .done(function(data) {
+                if(data) {
+                    typeobj.data = data;
+                }else {
+                    typeobj.data = null;
+                }
+            })
+            .fail(function() {
+                typeobj.data = null;
+            });
+
+
+            if(typeobj.data) {
+                typeobj.text = typeobj.code ? typeobj.data[typeobj.code] : '';    
+            }else {
+                me._removeData(opts[type]);
+                type == 'province' && (me._removeData(opts['city']), me._removeData(opts['district']) );
+                type == 'city' && me._removeData(opts['district']);
+            }
+        },
+
+        /**
+         * 初始化数据列表
+         * @private
+         * @param  {String} type 省市区类型
+         */
+        _initList: function(type) {
+            var me = this,
+                opts      = me._options,
+                typeobj   = opts[type] || {},
+
+                data      = typeobj.data,
+                code      = typeobj.code,
+                width     = typeobj.width,
+                $module   = typeobj['$module'],
+                offset,$content,
+                html;
+
+            if(!$module) return;
+            $content = $module.find('.fm-cityselect-content');
+
+            html = $.map(data, function(text, key) {
+                return'<li data-value="' + key + '" class="fm-list-item ' + (code == key ? opts.selectedClass : '' ) + '"><div class="fm-list-content">' + text + '</div></li>';
+            });
+
+            $content.html(html.join('\n'));
+        },
         /**
          * 初始化布局
          * @private
          */
-        _layout: function() {
+        _layout: function(type) {
             var me = this,
                 opts = me._options,
+                $module = opts[type].$module,
                 $win = $(window),
-                // Math.min()，解决IOS 9 safari 刷新获取宽度980的bug
-                winW = Math.min($win.width(), $('body').width()),
-                winH = $win.height(),
-                offset = winW - opts.offsetLeft;
+                duration = opts.duration / 1000,
+                offset,winW,winH,cityselectH, $content;
 
-            me._winW = winW;
-            me._winH = winH;
-            // 初始化宽度
-            ['district', 'city', 'province'].forEach(function(value, index) {
-                var $module = opts[value].$module,
-                    width = offset * (++index) / 3,
-                    duration = opts.duration / 1000;
+            if(!$module) return;
 
-                opts[value].width = width;
+            me._winW = winW = Math.min($win.width(), $('body').width());
+            me._winH = winH = $win.height();
 
-                $module && $module.css({
-                        width: width,
-                        "-webkit-transform": "translate3d(" + -width + "px, 0, 0)",
-                        "-webkit-transition": "-webkit-transform " + duration + "s linear",
-                        "transform": "translate3d(" + -width + "px, 0, 0)",
-                        "transition": "transform " + duration + "s linear"
-                    })
-                    .find('.fm-cityselect-content')
-                    .height(winH - $module.find('.fm-cityselect-title').height());
+            cityselectH = winH * 0.7; 
+
+            $content = $module.find('.fm-cityselect-content');
+            $module.css({
+                height: cityselectH,
+                "-webkit-transform": "translate3d(0,"+ -cityselectH + "px, 0)",
+                "-webkit-transition": "-webkit-transform " + duration + "s linear",
+                "transform": "translate3d(0,"+ -cityselectH + "px, 0)",
+                "transition": "transform " + duration + "s linear"
             });
+            
+            $content.height(cityselectH - $module.find('.fm-cityselect-header').height());
+
+            // 选中项滚动到可视区域
+            offset = $content.find('.' + opts.selectedClass).position();
+            offset = offset ? offset.top : 0;
+            offset = offset > cityselectH ? (offset - cityselectH / 2) : 0;
+            
+            $content.scrollTop(offset);
         },
         /**
          * 创建遮罩层
@@ -151,12 +293,26 @@ var fmui = require('/static/ui/core/fmui');
         _setValues: function() {
             var me = this,
                 opts = me._options,
-                inputs = $.map(me._mergeObj(), function(value, key) {
-                    return '<input type="hidden" name="' + value.name + '" id="' + value.name + '" value="' + value.code + '" placeholder="' + me._options.placeholder + '" required="'+ opts.required +'">';
-                });
+                mergeobj = me._mergeObj(),
+                initRequired = true,
+                required = 'required="'+ opts.required + '"',
+                inputs;
+
+            // 此处处理初始化各项为空时，必填标识
+            $.each(mergeobj, function(key, item) {
+                if(item.code) {
+                    initRequired = false;
+                    return false;
+                }
+            });
+
+            inputs = $.map(mergeobj, function(item, key) {
+                var _required = initRequired ? required : (item.code ? required : '');
+
+                return '<input type="hidden" name="' + item.name + '" id="' + item.name + '" value="' + item.code + '" placeholder="' + opts.placeholder +'"'+ _required +'>';    
+            });
 
             me._$hiddens.html(inputs.join('\n'));
-
             return me;
         },
         /**
@@ -169,9 +325,10 @@ var fmui = require('/static/ui/core/fmui');
                 opts = me._options,
                 texts = $.map(me._mergeObj(), function(value, key) {
                     return value.text;
-                });
+                }),
+                _text = texts.join('');
 
-            texts.length && $el.find(opts.className).removeClass('fm-cityselect-placeholder').text(texts.join(''));
+            $el.find(opts.className)[_text.length ? 'removeClass' : 'addClass']('fm-cityselect-placeholder').text(_text.length ? _text : opts.placeholder);
 
             return me;
         },
@@ -190,161 +347,25 @@ var fmui = require('/static/ui/core/fmui');
                 district: opts.district
             };
         },
+
         /**
-         * 创建各级DOM
-         * @param  {String} type 省市级类型
+         * 移除module
          * @private
          */
-        _createDom: function(type) {
-            if (!type) return;
-
-            var me = this,
-                opts = me._options,
-                typeobj = opts[type] || {},
-                $module = typeobj['$module'],
-                pcdobj = {
-                    'province': 'city',
-                    "city": 'district',
-                    "district": ''
-                };
-
-            if ($module) {
-                me._getData(type);
-                return;
-            } else {
-                // 初始化模板
-                $module = $(me._tmplFun({
-                    title: typeobj.title
-                })).attr('data-mode', type).appendTo('body');
-
-                typeobj['$module'] = $module;
-
-                me._layout();
-
-                me._getData(type);
-
-                // 绑定事件
-                $module.on('click', 'li', function() {
-                    var $this = $(this),
-                        value = $this.data('value'),
-                        className = type + '-selected',
-                        $dismodule;
-
-                    // 点击当前项不再处理
-                    if (value == typeobj.code) {
-                        type == 'district' && me.destroy();
-                        return;
-                    };
-
-                    me.__flag = false;
-
-                    typeobj.code = value;
-                    typeobj.text = typeobj.data[value];
-
-                    // 选中项
-                    $this.addClass(className).siblings().removeClass(className);
-
-                    switch (type) {
-                        case 'province':
-                            $dismodule = opts['district']['$module'];
-                            $dismodule && $dismodule.off().remove();
-                            opts['district']['$module'] = null;
-                            break;
-                        case 'district':
-                            me._setValues()._setTexts().destroy();
-                            break;
-                    }
-
-                    me._createDom(pcdobj[type]);
-
-                    me.trigger('select');
-                });
-            }
-
-            // 有code，初始化时创建动作
-            if (typeobj.code) {
-                me._createDom(pcdobj[type]);
+        _removeModule: function(obj) {
+            if(obj && obj['$module']) {
+                obj['$module'].off().remove();
+                obj['$module'] = null;
             }
         },
         /**
-         * 处理请求
+         * 移除数据
          * @private
-         * @param  {String} type 省市区类型
          */
-        _getData: function(type) {
-            var me = this,
-                opts = me._options,
-                typeobj = opts[type],
-                codeObj = {
-                    province: '',
-                    city: opts['province'].code,
-                    district: opts['city'].code
-                };
-
-            if(typeobj.data && me.__flag) {
-                me._initList(type);
-                return;
-            }else {
-                $.ajax({
-                    type: 'POST',
-                    url: opts.url,
-                    data: {
-                        type: type,
-                        // 此处code需要处理
-                        code: codeObj[type]
-                    },
-                    dataType: 'json',
-                    async: false
-                })
-                .done(function(data) {
-                    if (data) {
-                        typeobj.data = data;
-
-                        me._initList(type);
-                    } else {
-                        me._setValues()._setTexts();
-                    }
-                })
-                .fail(function() {
-                    typeobj.data = null;
-                });
-            }
-        },
-
-        /**
-         * 初始化数据列表
-         * @private
-         * @param  {String} type 省市区类型
-         */
-        _initList: function(type) {
-            var me = this,
-                opts     = me._options,
-                typeobj  = opts[type] || {},
-                
-                data     = typeobj.data,
-                code     = typeobj.code,
-                width    = typeobj.width,
-                $module  = typeobj['$module'],
-                className,offset,$content,
-                html;
-
-            typeobj.text = data[code];
-
-            if(!$module) return;
-
-            className = type + '-selected';
-            $content = $module.find('.fm-cityselect-content');
-
-            html = $.map(data, function(value, key) {
-                return'<li data-value="' + key + '" ' + (code == key && ('class="'+ className + '"') ) + '>' + value + '</li>';
-            });
-
-            $content.html(html.join('\n'));
-
-            // 选中项滚动到可视区域
-            offset = $content.find('.' + className).offset();
-            offset = offset ? offset.top : 0;
-            (offset > me._winH) && $content.scrollTop(offset - me._winH / 2);
+        _removeData: function(obj) {
+            obj.code = '';
+            obj.text = '';
+            obj.data = null; 
         },
 
         /**
@@ -358,8 +379,7 @@ var fmui = require('/static/ui/core/fmui');
                 opts = me._options;
 
             $.each(me._mergeObj(), function(key, obj) {
-                obj && obj.$module && obj.$module.off().remove();
-                obj.$module = null;
+                me._removeModule(obj);
             });
 
             me._overlay.destroy();

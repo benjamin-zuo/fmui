@@ -10,7 +10,16 @@
 var fmui = require('/static/ui/core/fmui');
 
 (function(fmui, $, undefined) {
-    $('body').on('change', 'select', function() {
+    $('body')
+/*    .on('click', '.fm-list-item', function(){
+        var $this = $(this),
+            $select = $this.find('select');
+
+        if($select.length) {
+            $select.attr('size',2);
+        }
+    })*/
+    .on('change', 'select', function() {
         $(this).addClass('selected');
     });
 
@@ -19,6 +28,6 @@ var fmui = require('/static/ui/core/fmui');
         var $this = $(this),
             val = $this.data('value');
 
-        val && ($this.val(val), $this.trigger('change') );
+        val !== '' && val !== undefined && ($this.val(val), $this.trigger('change') );
     });
 })(fmui, fmui.$);

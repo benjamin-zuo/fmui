@@ -12,8 +12,25 @@ var $ = require('zepto');
 
 require('/static/ui/actionsheet/actionsheet');
 
-$('#btn-click').on('tap', function() {
-    $.actionSheet({
+var actionsheet = $.actionSheet({
+    items: {
+        '选项一': function() {
+            alert('A');
+        },
+        '选项二': function() {
+            alert('B');
+        }
+    }
+}).on('hide', function() {
+    // todo
+});
+
+$('#btn-click-1').on('click', function() {
+    actionsheet.show();
+});
+
+$('#btn-click-2').on('click', function() {
+    var _actionsheet = $.actionSheet({
         items: {
             '选项一': function() {
                 alert('A');
@@ -22,7 +39,9 @@ $('#btn-click').on('tap', function() {
                 alert('B');
             }
         }
-    }).on('destroy', function() {
-        alert('=====destroy=====');
+    }).on('hide', function() {
+        _actionsheet.destroy();
     });
+
+    _actionsheet.show();
 })

@@ -3,8 +3,8 @@
  * @authors      Benjamin (cuew1987@gmail.com)
  * @link         https://github.com/benjamin-zuo
  * @date         2016-03-24 10:48:43
- * @description  Autoclear 表单input清除
- * @module       Autoclear
+ * @description  autoclear 表单input清除
+ * @module       autoclear
  */
 
 var fmui = require('/static/ui/core/fmui');
@@ -13,17 +13,28 @@ var fmui = require('/static/ui/core/fmui');
 
     var className = 'fm-input-autoclear',
         handler = {
-            input: function(clear) {
-                var val = this.value,
+            input: function(closest) {
+                var $this = $(this),
+                    val = this.value,
                     type = this.type;
 
-                clear && clear[val ? 'addClass' : 'removeClass'](className);
+                // 按语义性，应使用max而非maxlength
+                switch(type) {
+                    case 'number': 
+                        var maxLen = parseInt($this.attr('maxlength'));
+                        maxLen && val.length > maxLen && $this.val(val.substr(0, maxLen));
+                        break;
+                }
+
+                closest && closest[val ? 'addClass' : 'removeClass'](className);
             },
-            blur: function(clear) {
-                clear && clear.removeClass(className);
+            blur: function(closest) {
+                closest && closest.removeClass(className);
             },
-            focus: function(clear) {
-                clear && clear.addClass(className);
+            focus: function(closest) {
+                if($(this).prop('readonly')) return;
+
+                closest && closest.addClass(className);
             }
         };
 

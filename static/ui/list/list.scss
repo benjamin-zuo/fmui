@@ -163,13 +163,36 @@
             min-width: 96px;
         }
 
+        .fm-list-tip {
+            // 此处和fm-list-arrow等宽
+            width: 24px;
+            min-width: 24px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            line-height: 24px;
+        }
+        .fm-list-areacode {
+            width: 40px;
+            min-width: 40px;
+            input {
+                font-size: 14px;
+                width: 100%;
+                height: 24px;
+                line-height: 24px;
+            }
+        }
         .fm-list-control {
             @include flex(1);
+            font-size: 14px;
+            line-height: 24px;
 
             input,
             select,
             textarea,
             button {
+                font-size: 14px;
+                line-height: 24px;
                 width: 100%;
                 height: 24px;
             }
@@ -213,7 +236,8 @@
                 color: #ff552e;
                 font-size: 12px;
 
-                &[disabled] {
+                &[disabled],
+                &.disabled {
                     color: #e6e6e6;
                 }
 

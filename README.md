@@ -15,6 +15,7 @@ FMUI(Finance Mobile UI) 移动端（Mobile）组件库
 
 <a name="quick-start"></a>
 ## 环境搭建
+安装node,fis3
 
 <a name="compile-preview"></a>
 ## 编译&预览
@@ -91,11 +92,12 @@ $('#citySelector, #addressResident').citySelect({
 <a name="author-introduce"></a>
 ## 作者简介
 Benjamin, at Beijing
-您可以在 
+您可以在以下地方找到我： 
 * [Github](https://github.com/benjamin-zuo)
 * [weibo] (http://weibo.com/cuew1987) 
 * [Blog](http://www.zuojj.com)
 
+
 <a name="copyright-license"></a>
 ## 版权许可
-源码和文档版权属于 [zuojj.com](http://www.zuojj.com)。源码发布基于 [the MIT license](http://opensource.org/licenses/MIT) 开源协议。文档发布基于 [Creative Commons](http://creativecommons.org/licenses/by/4.0/) 开源协议。
+源码和文档版权属于 [zuojj.com](http://www.zuojj.com)。源码发布基于 [MIT license](http://opensource.org/licenses/MIT) 开源协议。文档发布基于 [Creative Commons](http://creativecommons.org/licenses/by/4.0/) 开源协议。

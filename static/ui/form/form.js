@@ -12,6 +12,9 @@ var fmui = require('/static/ui/core/fmui');
 
 (function(fmui, $, undefined) {
     fmui.define('Form', {
+        options: {
+
+        },
         /**
          * 初始化
          * @private
@@ -20,9 +23,7 @@ var fmui = require('/static/ui/core/fmui');
             var me = this,
                 $el = this.getEl();
 
-            me.on('ready', function() {
-                $el.attr('novalidate', 'novalidate');
-            }) 
+            $el.attr('novalidate', 'novalidate');
         },
 
         /**
@@ -61,12 +62,14 @@ var fmui = require('/static/ui/core/fmui');
                                 var $item = $ele.closest('.fm-list-item');
 
                                 $item.addClass('fm-validate');
+                                $ele.addClass('fm-validate-red');
 
                                 // 绑定事件
                                 $ele.on('change', function() {
                                     var $t = $(this);
                                     if ( $t.val() ) {
                                         $item.removeClass('fm-validate');
+                                        $ele.removeClass('fm-validate-red');
                                         $t.off();
                                     }
                                 });

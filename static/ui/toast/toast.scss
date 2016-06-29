@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 /**
  * 
  * @authors      Benjamin (cuew1987@gmail.com)
@@ -37,55 +37,58 @@
     position: fixed;
     top: 40%;
     left: 50%;
-    margin-left: -55px;
-    min-height: 40px;
+    z-index: 101;
 
+    min-height: 40px;
+    margin-left: -55px;
     &-only-content {
-        width: percent(548px);  
+        width: percent(548px);
         margin-left: percent(-274px);
         .fm-toast-body {
+            -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
             width: 100%;
             padding: 15px 10px;
-            box-sizing: border-box;
-            -webkit-box-sizing: border-box;
         }
     }
-
     &-body {
+        font-size: 15px;
+
         display: inline-block;
+
         width: 90px;
         padding: 20px 10px;
-        border-radius: 3px;
-        opacity: .8;
-        
-        font-size: 15px;
-        color: #fff;
-        text-align: center;
-        background-color: #1f2337;
-        word-break: break-all;
-    }
 
+        text-align: center;
+        word-break: break-all;
+
+        opacity: .8;
+        color: #fff;
+        border-radius: 3px;
+        background-color: #1f2337;
+    }
     &-icon {
         display: block;
+
         width: 36px;
         height: 36px;
         margin: 0 auto 12px;
+
         background-repeat: no-repeat;
         background-size: 100% 100%;
-
         &.icon-toast-success {
-            background-image: url(./icon-success.png?__inline); 
-        } 
+            background-image: url(./icon-success.png?__inline);
+        }
         &.icon-toast-fail {
-            background-image: url(./icon-fail.png?__inline); 
+            background-image: url(./icon-fail.png?__inline);
         }
         &.icon-toast-loading {
+            background-image: url(./icon-loading.png?__inline);
+
             @include animation(rotate-loading linear 2.6s infinite);
-            background-image: url(./icon-loading.png?__inline);  
         }
         &.icon-toast-network {
-            background-image: url(./icon-network.png?__inline);   
+            background-image: url(./icon-network.png?__inline);
         }
     }
 }
-

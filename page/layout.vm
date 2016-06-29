@@ -9,7 +9,6 @@
         <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
         <title>FMUI-#if($title) $title #else demo #end</title>
         #require("fmui:static/fmui.scss")
-        <link rel="stylesheet" href="/static/common.scss">
     #end
 
     #body()

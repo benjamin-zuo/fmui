@@ -39,8 +39,13 @@
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
         button:first-child {
-            margin-right: 10px;
-        }    
+            margin-right: 2%;
+        }
+        button {
+            display: block;
+            width: 49%;
+        }
+
     }
 
     &-eg {

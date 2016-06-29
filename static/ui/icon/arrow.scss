@@ -6,7 +6,7 @@
  * @date         2016-02-29 14:08:59
  * @description  icon-arrow
  */
-
+@import '/static/helper/css3';
 
 %fm-icon-arrow {
     display: inline-block;
@@ -23,7 +23,7 @@
 
         content: '';
 
-        border: 2px solid #e8e8e8;
+        border: 2px solid #c8c8c8;
         border-top: 0 none;
         border-left: 0 none;
     }
@@ -35,8 +35,7 @@
 
     &:before {
         margin: 4px 0 0 1px;
-
-        -webkit-transform: rotate(225deg);
+        @include transform(rotate(225deg));
     }
 }
 
@@ -46,8 +45,7 @@
 
     &:before {
         margin-left: 1px;
-
-        -webkit-transform: rotate(45deg);
+        @include transform(rotate(45deg));
     }
 }
 
@@ -57,7 +55,7 @@
 
     &:before {
         margin-top: 1px;
-        -webkit-transform: rotate(315deg);
+        @include transform(rotate(135deg));
     }
 }
 

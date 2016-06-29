@@ -14,26 +14,25 @@ var fmui = require('/static/ui/core/fmui');
     fmui.define('Overlay', {
         isNotShared: true,
         /**
+         * @property {Boolean}   display  是否默认显示
          * @property {Number}    opacity  遮罩层透明度
          */
         options: {
-            opacity: 0.6
+            display: true,
+            opacity: 0.5
         },
 
         /**
          * 初始化
          * @private
          */
-        _init: function() {
-            var me = this;
+        _create: function() {
+            var me = this,
+                opts = me._options,
+                $div = me._$div = $('<div class="fm-overlay"></div>').css('opacity', opts.opacity);
 
-            me.on('ready', function() {
-                var $div = $('<div class="fm-overlay"></div>').css('opacity', me._options.opacity);
-
-                $('body').append($div);
-
-                me._$div = $div; 
-            });
+            !opts.display && $div.hide();
+            $('body').append($div);
         },
 
         /**

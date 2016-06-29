@@ -62,6 +62,14 @@ var fmui = require('/static/ui/core/fmui');
          * @private
          */
         _init: function() {
+
+        },
+
+        /**
+         * 开始倒计时
+         * @public
+         */
+        start: function() {
             var me = this,
                 opts = me._options,
                 el = me.getEl();
@@ -127,16 +135,23 @@ var fmui = require('/static/ui/core/fmui');
                 hand.bits = clock[i + 2];
             });
 
-            me._getLeft();
+            me._setLeft();
 
             me._reflow();
+        },
+        /**
+         * 停止走秒
+         * @public
+         */
+        stop: function() {
+
         },
 
         /**
          * 获取倒计时剩余时间
          * @private
          */
-        _getLeft: function() {
+        _setLeft: function() {
             var me = this,
                 opts = me._options,
 

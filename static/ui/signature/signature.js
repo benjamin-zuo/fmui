@@ -4,7 +4,7 @@
  * @link         https://github.com/benjamin-zuo
  * @date         2016-03-24 14:04:21
  * @file         Signature 电子签名组件
- * @external     ui/overlay/overlay.js, ./_signature.tmpl
+ * @external     ./_signature.tmpl
  * @module       Dialog
  */
 
@@ -12,13 +12,12 @@ var fmui = require('/static/ui/core/fmui');
 var SignaturePad = require('/static/ui/signature/signature-pad');
 
 (function(fmui, $, undefined) {
-    
-    require('/static/ui/overlay/overlay');
-
     fmui.define('Signature', {
         isNotShared: true,
         /**
-         * @property {Object}    buttons: [{
+         * @property {Object}    
+         * ```
+         * buttons: [{
                 text: '重新签名',
                 className: 'fm-button white',
                 handler: function(me){
@@ -33,6 +32,7 @@ var SignaturePad = require('/static/ui/signature/signature-pad');
                     }
                 }
             }]
+            ```
          * @property {Boolean}   fixed   是否蒙层展示，默认：true
          * @property {Function}  handler  [description]
          */

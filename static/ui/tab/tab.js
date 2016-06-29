@@ -1,7 +1,8 @@
 /**
  * 
- * @authors      Benjamin
- * @link         https://github.com/benjamin-zuo
+ * @authors      HuangChengWen
+ * @contributors Benjamin
+ * @link         https://github.com/Eric124120,https://github.com/benjamin-zuo
  * @date         2016-3-31 10:51:57
  * @description  Tab组件
  */
