@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Fmui by benjamin-zuo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Fmui</h1>
+      <h2 class="project-tagline">FMUI(Finance Mobile UI) 移动端（Mobile）组件库</h2>
+      <a href="https://github.com/benjamin-zuo/fmui" class="btn">View on GitHub</a>
+      <a href="https://github.com/benjamin-zuo/fmui/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/benjamin-zuo/fmui/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="fmui" class="anchor" href="#fmui" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FMUI</h1>
+
+<p>FMUI(Finance Mobile UI) 移动端（Mobile）组件库</p>
+
+<h2>
+<a id="内容" class="anchor" href="#%E5%86%85%E5%AE%B9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>内容</h2>
+
+<ul>
+<li><a href="#quick-start">环境搭建</a></li>
+<li><a href="#compile-preview">编译预览</a></li>
+<li><a href="#widget-list">组件列表</a></li>
+<li><a href="#widget-using">组件调用</a></li>
+<li><a href="#attention-list">注意事项</a></li>
+<li><a href="#document-demo">文档示例</a></li>
+<li><a href="#version-upadate">版本更新</a></li>
+<li><a href="#project-use">项目使用</a></li>
+<li><a href="#question-feedback">问题反馈</a></li>
+<li><a href="#author-introduce">作者简介</a></li>
+<li><a href="#copyright-license">版权许可</a></li>
+</ul>
+
+<p><a name="quick-start"></a></p>
+
+<h2>
+<a id="环境搭建" class="anchor" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>环境搭建</h2>
+
+<p>安装node,fis3</p>
+
+<p><a name="compile-preview"></a></p>
+
+<h2>
+<a id="编译预览" class="anchor" href="#%E7%BC%96%E8%AF%91%E9%A2%84%E8%A7%88" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>编译&amp;预览</h2>
+
+<pre><code>cd fmui
+// 预览
+fis3 release 
+// 实时预览
+fis3 release -wL
+// 发布
+fis3 release prod
+</code></pre>
+
+<p><a name="widget-list"></a></p>
+
+<h2>
+<a id="组件列表" class="anchor" href="#%E7%BB%84%E4%BB%B6%E5%88%97%E8%A1%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>组件列表</h2>
+
+<ul>
+<li>  ActionSheet     上拉列表</li>
+<li>  Agreement       协议模板</li>
+<li>  Button          按钮</li>
+<li>  Checkbox        单复选框</li>
+<li>  CitySelect      省市区三级联动</li>
+<li>  Countdown       倒计时</li>
+<li>  Dialog          弹窗</li>
+<li>  Form            表单</li>
+<li>  List            列表</li>
+<li>  Notice          顶部通知</li>
+<li>  Overlay         遮罩层</li>
+<li>  Search          搜索框</li>
+<li>  Switch          滑动开关</li>
+<li>  Tab             Tab切换</li>
+<li>  Toast           Toast气泡</li>
+<li>  Validate        表单校验</li>
+</ul>
+
+<p><a name="widget-using"></a></p>
+
+<h2>
+<a id="组件调用" class="anchor" href="#%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>组件调用</h2>
+
+<pre><code>// 上拉列表
+$.actionSheet({
+    items: {
+        '选项一': function() {
+            alert('A');
+        },
+        '选项二': function() {
+            alert('B');
+        }
+    }
+}).on('destroy', function() {
+    alert('=====destroy=====');
+});
+</code></pre>
+
+<pre><code>// 省市区三级联动
+$('#citySelector, #addressResident').citySelect({
+    url: '/test/city',
+    province: {
+        data: pdata
+    };
+});
+</code></pre>
+
+<p><a name="attention-list"></a></p>
+
+<h2>
+<a id="注意事项" class="anchor" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>注意事项</h2>
+
+<ol>
+<li>.tmpl文件建议以下划线开头命名，这样编译时不会产出，同时解决和同目录下与js同名时编译出现bug问题，或者在fis-conf.js中配置不产出。</li>
+</ol>
+
+<p><a name="document-demo"></a></p>
+
+<h2>
+<a id="文档示例" class="anchor" href="#%E6%96%87%E6%A1%A3%E7%A4%BA%E4%BE%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>文档示例</h2>
+
+<p><a name="version-upadate"></a></p>
+
+<h2>
+<a id="版本更新" class="anchor" href="#%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>版本更新</h2>
+
+<p><code>FMUI</code> 的版本方针遵循 <a href="http://semver.org/lang/zh-CN/">SemVer</a> 规范，版本号采用 <code>主版本号.次版本号.修订号</code> 的格式。详情请查看<a href="https://github.com/benjamin-zuo/fmui/blob/master/changelog.md">changelog</a></p>
+
+<p><a name="project-use"></a></p>
+
+<h2>
+<a id="项目使用" class="anchor" href="#%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>项目使用</h2>
+
+<ul>
+<li><a href="http://chefenqi.58.com">58车分期</a></li>
+<li><a href="http://csd.58.com">58车商贷</a></li>
+<li><a href="http://cfqm.58v5.cn">58车分期CRM</a></li>
+</ul>
+
+<p><a name="question-feedback"></a></p>
+
+<h2>
+<a id="问题反馈" class="anchor" href="#%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>问题反馈</h2>
+
+<p>有问题可以直接提到<a href="https://github.com/benjamin-zuo/fmui/issues/new">Issues</a>和<a href="https://github.com/benjamin-zuo/fmui/pulls">Pull Requests</a></p>
+
+<p><a name="author-introduce"></a></p>
+
+<h2>
+<a id="作者简介" class="anchor" href="#%E4%BD%9C%E8%80%85%E7%AE%80%E4%BB%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>作者简介</h2>
+
+<p>Benjamin, at Beijing
+您可以在以下地方找到我： </p>
+
+<ul>
+<li><a href="https://github.com/benjamin-zuo">Github</a></li>
+<li>
+<a href="http://weibo.com/cuew1987">weibo</a> </li>
+<li><a href="http://www.zuojj.com">Blog</a></li>
+</ul>
+
+<p><a name="copyright-license"></a></p>
+
+<h2>
+<a id="版权许可" class="anchor" href="#%E7%89%88%E6%9D%83%E8%AE%B8%E5%8F%AF" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>版权许可</h2>
+
+<p>源码和文档版权属于 <a href="http://www.zuojj.com">zuojj.com</a>。源码发布基于 <a href="http://opensource.org/licenses/MIT">MIT license</a> 开源协议。文档发布基于 <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons</a> 开源协议。</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/benjamin-zuo/fmui">Fmui</a> is maintained by <a href="https://github.com/benjamin-zuo">benjamin-zuo</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
