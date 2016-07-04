@@ -13,7 +13,7 @@ var SignaturePad = require('/static/ui/signature/signature-pad');
 
 (function(fmui, $, undefined) {
     fmui.define('Signature', {
-        isNotShared: true,
+        nonInstance: true,
         /**
          * @property {Object}    
          * ```

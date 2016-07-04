@@ -10,7 +10,7 @@ var fmui = require('/static/ui/core/fmui');
 
 (function(fmui, $, undefined) {
     fmui.define('Scrollload', {
-        isNotShared: true,
+        nonInstance: true,
         /**
          * @property {String} container   加载数据容器, 支持selector选择器
          * @property {String} url         请求URL

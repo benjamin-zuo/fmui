@@ -12,7 +12,7 @@ require('/static/ui/overlay/overlay');
 
 (function(fmui, $, undefined) {
     fmui.define('ActionSheet', {
-        isNotShared: true,
+        nonInstance: true,
 
         /**
          * 使用触发初始化建议使用click事件绑定元素触发

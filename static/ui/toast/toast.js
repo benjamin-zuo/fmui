@@ -16,7 +16,7 @@ var fmui = require('/static/ui/core/fmui');
     var tmplFun = __inline('./_toast.tmpl');
 
     fmui.define('Toast', {
-        isNotShared: true,
+        nonInstance: true,
 
         /**
          * @property {String}    content    字符串及HTML DOM

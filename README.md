@@ -1,5 +1,5 @@
 # FMUI
-FMUI(Finance Mobile UI) 移动端（Mobile）组件库
+FMUI(Finance Mobile UI) 移动端组件库
 
 ## 内容
 * [环境搭建](#quick-start)
@@ -9,7 +9,7 @@ FMUI(Finance Mobile UI) 移动端（Mobile）组件库
 * [注意事项](#attention-list)
 * [文档示例](#document-demo)
 * [版本更新](#version-upadate)
-* [项目使用](#project-use)
+* [谁在使用](#project-use)
 * [问题反馈](#question-feedback)
 * [作者简介](#author-introduce)
 * [版权许可](#copyright-license)

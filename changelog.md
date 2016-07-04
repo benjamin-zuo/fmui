@@ -1,18 +1,25 @@
 # FMUI
-FMUI(Finance Mobile UI) 移动端（Mobile）组件库
+FMUI(Finance Mobile UI) 移动端组件库
 
 ## History
 * [0.0.1](#0.0.1)
 * [0.0.2](#0.0.2)
+* [0.0.3](#0.0.3)
+
+<a name="0.0.1"></a>
 
 ## v0.0.1
 * init commit
+
+<a name="0.0.2"></a>
 
 ## v0.0.2 (2016-06-29)
 * cityselect.js fixed init requried bug 
 * validate.js   add config option closest,default .fm-list-item
 * combobox.js   fixed value equal 0，trigger change event
 * list.scss     modify .fm-list-control children input and select element style
+
+<a name="0.0.3"></a>
 
 ## v0.0.3 (2016-07-04)
 * update dialog.scss with ui specification

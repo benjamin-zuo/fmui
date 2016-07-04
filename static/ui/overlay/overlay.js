@@ -12,7 +12,7 @@ var fmui = require('/static/ui/core/fmui');
 (function(fmui, $, undefined) {
 
     fmui.define('Overlay', {
-        isNotShared: true,
+        nonInstance: true,
         /**
          * @property {Boolean}   display  是否默认显示
          * @property {Number}    opacity  遮罩层透明度

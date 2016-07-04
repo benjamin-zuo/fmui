@@ -14,11 +14,13 @@ var fmui = require('./event');
         // 挂到组件类上的属性、方法
         staticlist = [ 'options'],
 
-        // 存储和读取数据到指定对象，任何对象包括dom对象
-        // 注意：数据不直接存储在object上，而是存在内部闭包中，通过_gid关联
-        // record( object, key ) 获取object对应的key值
-        // record( object, key, value ) 设置object对应的key值
-        // record( object, key, null ) 删除数据
+        /**
+         * [存储和读取数据到指定对象，任何对象包括dom对象]
+         * @description 数据不直接存储在object上，而是存在内部闭包中，通过_gid关联
+         * record( object, key ) 获取object对应的key值
+         * record( object, key, value ) 设置object对应的key值
+         * record( object, key, null ) 删除数据
+         */
         record = (function() {
             var data = {},
                 id = 0,
@@ -37,7 +39,11 @@ var fmui = require('./event');
 
         event = fmui.event;
 
-    // 遍历对象,迭代器
+    /**
+     * [eachObject 遍历对象]
+     * @param  {Object}   obj      待遍历对象
+     * @param  {Function} iterator 迭代器函数
+     */
     function eachObject( obj, iterator ) {
         obj && Object.keys( obj ).forEach(function( key ) {
             iterator( key, obj[ key ] );
@@ -45,35 +51,31 @@ var fmui = require('./event');
     }
 
     /**
-     * 格式某个属性的值
-     * @param  {String} 格式化json字符串
-     * @return {Object} 返回格式化后的对象
-     *
-     * 此处需要注意需要做单引号替换处理，不然JSON.parse解析会报错
+     * [parseData 格式化数据]
+     * @param  {all} data 需要格式化的数据
+     * @return {all}      格式化后的数据
+     * @description 此处需要注意需要做单引号替换处理，不然JSON.parse解析会报错，当
+     * data === null 时，表示没有该属性
      */
     function parseData( data ) {
-        //console.log(JSON.parse(data.replace(/'/g, '"')));
-        try {    // JSON.parse可能报错
-
-            // 当data===null表示，没有此属性
+        try {    
             data = data === 'true' ? true :
-                    data === 'false' ? false : data === 'null' ? null :
-
-                    // 如果是数字类型，则将字符串类型转成数字类型
+                    data === 'false' ? false : 
+                    data === 'null' ? null :
                     +data + '' === data ? +data :
-                    /(?:\{[\s\S]*\}|\[[\s\S]*\])$/.test( data ) ?
-                    JSON.parse( data.replace(/'/g, '"') ) : data;
+                    /(?:\{[\s\S]*\}|\[[\s\S]*\])$/.test( data ) ? JSON.parse( data.replace(/'/g, '"') ) : 
+                    data;
         } catch ( ex ) {
             data = undefined;
         }
-
         return data;
     }
 
     /**
-     * 解析DOM配置项data-*
-     * @param  {this} 当前DOM对象
-     * @return {Object} 格式化后的配置对象  
+     * [parseOptions 解析DOM配置项中data-*数据值]
+     * @param  {Object} el 当前节点元素
+     * @return {Object}    解析后的对象
+     * @description 使用dataset并做兼容性处理,data-options={'key': 'value'}
      */
     function parseOptions( el ) {
         var ret = {},
@@ -82,7 +84,6 @@ var fmui = require('./event');
             key,
             data;
 
-        // 使用dataset并做兼容性处理,data-options={'key': 'value'}
         if(document.documentElement.dataset) {
             return parseData(el && el.dataset && el.dataset.options);
         }else {
@@ -108,26 +109,27 @@ var fmui = require('./event');
     }
 
     /**
-     * [zeptolize description]
+     * [zeptolize 组件实例化]
      * @param  {String} 组件名称
      * @param  {Object} 配置扩展项
      * @return {Object} 实例化后的对象
      * 
+     * nonInstance为false(默认):
      * 在$.fn上挂对应的组件方法
-     * $('#btn').button( options );实例化组件
-     * $('#btn').button( 'select' ); 调用实例方法
-     * $('#btn').button( 'this' ); 取组件实例
+     * $('#dialog').dialog( options );实例化组件
+     * $('#dialog').button( 'show' ); 调用实例方法
+     * $('#dialog').button( 'this' ); 取组件实例
      *
-     * 当isNotShared为true时，挂载到$下，如$.validateError
-     * $.validateError();实例化组件
+     * nonInstance为true：
+     * 挂载到$下，如$.toast()来实例化
      * 
      */
     function zeptolize( name, object ) {
         var key = name.substring( 0, 1 ).toLowerCase() + name.substring( 1 ),
-            isNotShared = !!object.isNotShared,
-            old = isNotShared ? $[key] : $.fn[ key ];
+            nonInstance = !!object.nonInstance,
+            old = nonInstance ? $[key] : $.fn[ key ];
 
-        if(object.isNotShared) {
+        if(object.nonInstance) {
             $[key] = function(opts) {
                 return new fmui[ name ]($.isPlainObject( opts ) ? opts : {} ) || this;
             };
