@@ -27,7 +27,7 @@ fis
  */
 
 fis.media('prod')
-.set('version', '0.0.2')
+.set('version', '0.0.3')
 
 .set('imgcdnurl', 'http://xxx.xxxcdn.com.cn/che_static')
 .set('jscsscdnurl', 'http://xxx.xxxcdn.com.cn/che_static')

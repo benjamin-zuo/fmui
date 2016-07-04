@@ -13,3 +13,7 @@ FMUI(Finance Mobile UI) 移动端（Mobile）组件库
 * validate.js   add config option closest,default .fm-list-item
 * combobox.js   fixed value equal 0，trigger change event
 * list.scss     modify .fm-list-control children input and select element style
+
+## v0.0.3 (2016-07-04)
+* update dialog.scss with ui specification
+* remove class .arrow-down which added on v0.0.3

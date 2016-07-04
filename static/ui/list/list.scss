@@ -138,6 +138,11 @@
 
         /* Arrow 箭头 */
         .fm-list-arrow {
+            position: absolute;
+            top: 50%;
+            margin-top: -12px;
+            right: 14px;
+            pointer-events: none;
             width: 24px;
             height: 24px;
             overflow: hidden;
@@ -281,17 +286,12 @@
 
     // 双行组合（普通）
     &-multi {
-        .fm-list-arrow {
-            margin-top: 9px;
-        }
+        // to do
     }
 
 
     // 双行组合 thumb=42px
     &-multi-thumb {
-        .fm-list-arrow {
-            margin-top: 9px;
-        }
         .fm-list-item {
             -webkit-background-size: 15px 1px,15px 1px,100% 1px,100% 1px;
         } 

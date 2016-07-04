@@ -44,6 +44,7 @@
         min-height: 48px;
         max-height: 160px;
         padding: 10px;
+        font-size: 12px;
 
         text-align: center;
         word-break: break-all;
@@ -63,11 +64,15 @@
 
             text-align: center;
 
-            color: #fc522f;
+            color: #37acf4;
 
             @include flex(1);
             &:not(:first-child) {
                 border-left: 1px solid #f4f4f4;
+            }
+
+            &:last-child {
+                font-weight: bold;
             }
             &:active {
                 background-color: #f4f4f4;
