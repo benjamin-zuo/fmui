@@ -15,8 +15,8 @@ var SignaturePad = require('/static/ui/signature/signature-pad');
     fmui.define('Signature', {
         nonInstance: true,
         /**
-         * @property {Object}    
-         * ```
+         * @property {Object}  buttons 按钮组   
+         * ```javascript
          * buttons: [{
                 text: '重新签名',
                 className: 'fm-button white',
@@ -54,7 +54,7 @@ var SignaturePad = require('/static/ui/signature/signature-pad');
                 tmplFun = __inline('./_signature.tmpl'),
                 $tmpl;
 
-            $tmpl = me._tmpl = $(tmplFun(opts));
+            $tmpl = me._$tmpl = $(tmplFun(opts));
 
             $('body').css('overflow', 'hidden').append($tmpl);
 
@@ -80,7 +80,7 @@ var SignaturePad = require('/static/ui/signature/signature-pad');
 
             if(!$.isArray(buttons)) return;
 
-            me._footer = $footer = me._tmpl.find('.fm-signature-footer');
+            me._$footer = $footer = me._$tmpl.find('.fm-signature-footer');
 
             buttons.forEach(function(obj, index) {
                 html.push('<button type="button" class="'+ obj.className +'">'+ obj.text +'</button>');    
@@ -104,7 +104,7 @@ var SignaturePad = require('/static/ui/signature/signature-pad');
             // 计算视口宽高
             var me          = this,
                 $win        = $(window),
-                $tmpl       = me._tmpl,
+                $tmpl       = me._$tmpl,
                 $canvaswrap = $tmpl.find('.fm-signature-canvas'),
                 $canvas     = $canvaswrap.find('canvas'),
                 canvas      = $canvas[0],
@@ -161,10 +161,11 @@ var SignaturePad = require('/static/ui/signature/signature-pad');
          * @return this
          */
         destroy: function() {
-            this._footer.off();
-            this._tmpl.remove();
+            var me = this;
+            me._$footer.off();
+            me._$tmpl.remove();
 
-            return this.$super('destroy');    
+            return me.$super('destroy');    
         }
 
         /**

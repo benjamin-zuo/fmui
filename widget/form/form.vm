@@ -29,7 +29,7 @@
                     <span class="fm-icon-clear"></span>
                 </div>
             </div>
-            <div class="fm-list-item">
+            <div class="fm-list-item fm-list-item-combobox">
                 <div class="fm-list-label">子女人数</div>
                 <div class="fm-list-control">
                     <select name="children" class="selected" required>

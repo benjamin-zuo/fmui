@@ -8,13 +8,9 @@
  */
 
 var fmui = require('/static/ui/core/fmui');
-
-(function(fmui, $, undefined) {
-    
     require('/static/ui/overlay/overlay');
 
-    var tmplFun = __inline('./_toast.tmpl');
-
+(function(fmui, $, undefined) {
     fmui.define('Toast', {
         nonInstance: true,
 
@@ -50,20 +46,22 @@ var fmui = require('/static/ui/core/fmui');
                     loading : '处理中',
                     network : '网络无法连接',
                     none: '---------'
-                };
+                },
+                tmplFun = __inline('./_toast.tmpl'),
+                $tmpl;
             
             me.on('ready', function() {
                 opts.content = opts.content || _map[opts.type];
 
-                var _tmpl = $( tmplFun(opts) );
+                $tmpl = $( tmplFun(opts) );
 
                 me._overlay = opts.modal ? $.overlay({opacity: 0}) : null;
 
-                $('body').append(_tmpl);
+                $('body').append($tmpl);
 
-                'none' === opts.type && _tmpl.addClass('fm-toast-only-content');
+                'none' === opts.type && $tmpl.addClass('fm-toast-only-content');
 
-                me._tmpl = _tmpl;
+                me._$tmpl = $tmpl;
 
                 if(!opts.autoClose) return;
 
@@ -80,13 +78,12 @@ var fmui = require('/static/ui/core/fmui');
          * @return this
          */
         destroy: function() {
-            this._overlay && this._overlay.destroy();
-
-            this._tmpl.remove();
-
-            return this.$super('destroy');
+            var me = this;
+            
+            me._overlay && me._overlay.destroy();
+            me._$tmpl.remove();
+            return me.$super('destroy');
         }
     }); 
-
 })(fmui, fmui.$);
 

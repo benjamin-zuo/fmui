@@ -18,6 +18,9 @@
     <div class="fm-flexbox-item">
         <button type="button" class="fm-button blue" data-action="none">type=none</button>
     </div>
+    <div class="fm-flexbox-item">
+        <button type="button" class="fm-button blue" data-action="content">Ö»ÓÐcontent</button>
+    </div>
 </div>
 
 #script()

@@ -16,7 +16,7 @@ var fmui = require('/static/ui/core/fmui');
          * @property {String} url         请求URL
          * @property {Object} queryParams 查询参数 
          * 例如：
-         * ```
+         * ```javascript
          * {
          *     page: 1,
          *     rows: 20,

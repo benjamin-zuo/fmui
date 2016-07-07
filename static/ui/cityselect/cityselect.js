@@ -7,11 +7,10 @@
 
 var fmui = require('/static/ui/core/fmui');
 
+require('/static/ui/overlay/overlay');
+
 (function(fmui, $, undefined) {
-    require('/static/ui/overlay/overlay');
-
     fmui.define('Cityselect', {
-
         /**
          * @property {String}   url         请求数据URL
          * @property {Object}   province    省级Object
@@ -393,5 +392,4 @@ var fmui = require('/static/ui/core/fmui');
          * @description CitySelect组件销毁时触发
          */
     });
-
 })(fmui, fmui.$);

@@ -2,7 +2,6 @@ var fmui = require('/static/ui/core/fmui');
 
 (function(fmui, $, undefined) {
     fmui.define('Countup', {
-
         /**
          * @property {Number}  startVal       开始值
          * @property {Number}  endVal         结束值
@@ -14,14 +13,14 @@ var fmui = require('/static/ui/core/fmui');
          * @property {String}  decimal        character to use as a decimal
          */
         options: {
-            startVal: 0,
-            endVal: 0,
-            decimals: 0,
-            duration: 2,
-            useEasing: true,
-            useGrouping: true,
-            separator: ',',
-            decimal: '.'
+            startVal    : 0,
+            endVal      : 0,
+            decimals    : 0,
+            duration    : 2,
+            useEasing   : true,
+            useGrouping : true,
+            separator   : ',',
+            decimal     : '.'
         },
         /**
          * @初始化化
@@ -261,7 +260,5 @@ var fmui = require('/static/ui/core/fmui');
             }
             return opts.prefix + x1 + x2 + opts.suffix;
         }
-
     });
-
 })(fmui, fmui.$, undefined);

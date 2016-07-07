@@ -45,14 +45,17 @@ var doAction = {
         });
     },
     none: function() {
+        $.toast();
+    },
+    content: function() {
         $.toast({
-/*            content: '只有content只有content'*/
+            content: '只有content只有content'
         });
     }
 }
 
-$('body').on('tap', '[data-action]', function(){
+$('#container').on('click', '[data-action]', function(){
     var action = $(this).data('action');
 
     doAction[action]();
-})
+});

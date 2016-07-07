@@ -53,8 +53,9 @@ var fmui = require('/static/ui/core/fmui');
          * @return this
          */
         hide: function() {
-            this._$div.hide();
-            return this.trigger('hide');
+            var me = this;
+            me._$div.hide();
+            return me.trigger('hide');
         },
 
         /**
@@ -74,9 +75,10 @@ var fmui = require('/static/ui/core/fmui');
          * @return this
          */
         destroy: function() {
-            this._$div.off().remove();
+            var me = this;
+            me._$div.off().remove();
 
-            return this.$super('destroy');
+            return me.$super('destroy');
         }
 
         /**

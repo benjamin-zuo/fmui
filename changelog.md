@@ -5,6 +5,7 @@ FMUI(Finance Mobile UI) 移动端组件库
 * [0.0.1](#0.0.1)
 * [0.0.2](#0.0.2)
 * [0.0.3](#0.0.3)
+* [0.0.4](#0.0.4)
 
 <a name="0.0.1"></a>
 
@@ -24,3 +25,10 @@ FMUI(Finance Mobile UI) 移动端组件库
 ## v0.0.3 (2016-07-04)
 * update dialog.scss with ui specification
 * remove class .arrow-down which added on v0.0.3
+
+<a name="0.0.4"></a>
+
+## v0.0.4 (2016-07-07)
+* `select` element update className `fm-list-item` to `fm-list-item fm-list-item-combobox`
+* dialog widget bug fixed
+* toast widget only have content adapte widescreen

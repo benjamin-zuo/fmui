@@ -256,5 +256,4 @@ var fmui = require('/static/ui/core/fmui');
          * @description 倒计时结束时触发
          */
     });
-
 })(fmui, fmui.$);

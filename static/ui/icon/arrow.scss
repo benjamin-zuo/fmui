@@ -44,6 +44,7 @@
     @extend %fm-icon-arrow;
 
     &:before {
+        margin-top: -1px;
         margin-left: 1px;
         @include transform(rotate(45deg));
     }

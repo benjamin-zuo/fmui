@@ -9,13 +9,10 @@
  */
 
 var fmui = require('/static/ui/core/fmui');
+require('/static/ui/overlay/overlay');
 
 (function(fmui, $, undefined) {
     
-    require('/static/ui/overlay/overlay');
-
-    var tmplFun = __inline('./_dialog.tmpl');
-
     fmui.define('Dialog', {
         /**
          * @property {Object}  buttons 按钮键值对key:文本，value:handler
@@ -42,15 +39,14 @@ var fmui = require('/static/ui/core/fmui');
          */
         _init: function() {
             var me = this,
-            
                 opts = me._options,
-
+                tmplFun = __inline('./_dialog.tmpl'),
                 $tmpl;
 
-            $tmpl = me._tmpl = $(tmplFun(opts));
+            $tmpl = me._$tmpl = $(tmplFun(opts));
 
             // 创建overlay
-            me._overlay = opts.modal && $.overlay();
+            opts.modal && ( me._overlay = $.overlay() );
 
             // 初始化按钮
             me._initBtn();
@@ -69,7 +65,7 @@ var fmui = require('/static/ui/core/fmui');
 
             if(Object.keys && !Object.keys(buttons).length) return;
 
-            $footer = me._footer = me._tmpl.find('.fm-dialog-footer');
+            $footer = me._$footer = me._$tmpl.find('.fm-dialog-footer');
 
             // 此处使用foreach更新
             for(key in buttons) {
@@ -92,11 +88,12 @@ var fmui = require('/static/ui/core/fmui');
          * @return this
          */
         show: function() {
-            this._overlay && this._overlay.show();
+            var me = this;
+            me._overlay && me._overlay.show();
 
-            this._tmpl.show();
+            me._$tmpl.show();
             
-            return this.trigger('show');
+            return me.trigger('show');
         },
 
         /**
@@ -104,11 +101,12 @@ var fmui = require('/static/ui/core/fmui');
          * @return this
          */
         hide: function() {
-            this._overlay && this._overlay.hide();
+            var me = this;
+            me._overlay && me._overlay.hide();
 
-            this._tmpl.hide();
+            me._$tmpl.hide();
 
-            return this.trigger('hide');   
+            return me.trigger('hide');   
         },
 
         /**
@@ -116,13 +114,14 @@ var fmui = require('/static/ui/core/fmui');
          * @return this
          */
         destroy: function() {
-            this._overlay && this._overlay.destroy();
+            var me = this;
+            me._overlay && me._overlay.destroy();
 
-            this._footer && this._footer.off();
+            me._$footer && me._$footer.off();
 
-            this._tmpl.remove();
+            me._$tmpl.remove();
 
-            return this.$super('destroy');    
+            return me.$super('destroy');    
         }
 
 

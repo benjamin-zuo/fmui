@@ -1,4 +1,4 @@
-fis.require('arrow')(fis);
+require('./base-conf.js');
 
 // 命名空间
 fis.config.set('namespace', 'fmui');
@@ -27,7 +27,7 @@ fis
  */
 
 fis.media('prod')
-.set('version', '0.0.3')
+.set('version', '0.0.4')
 
 .set('imgcdnurl', 'http://xxx.xxxcdn.com.cn/che_static')
 .set('jscsscdnurl', 'http://xxx.xxxcdn.com.cn/che_static')
