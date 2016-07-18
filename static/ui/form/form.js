@@ -59,19 +59,12 @@ var fmui = require('/static/ui/core/fmui');
                             if( $.trim(param.value) ) {
                                 continue;
                             }else {
-                                var $item = $ele.closest('.fm-list-item');
-
-                                $item.addClass('fm-validate');
-                                $ele.addClass('fm-validate-red');
+                                $ele.addClass('fm-validate-red').closest('.fm-list-item').addClass('fm-validate');
 
                                 // 绑定事件
                                 $ele.on('change', function() {
                                     var $t = $(this);
-                                    if ( $t.val() ) {
-                                        $item.removeClass('fm-validate');
-                                        $ele.removeClass('fm-validate-red');
-                                        $t.off();
-                                    }
+                                    $t.val() && $t.off().removeClass('fm-validate-red').closest('.fm-list-item').removeClass('fm-validate');
                                 });
 
                                 flag = false;

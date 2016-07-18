@@ -6,6 +6,7 @@ FMUI(Finance Mobile UI) 移动端组件库
 * [0.0.2](#0.0.2)
 * [0.0.3](#0.0.3)
 * [0.0.4](#0.0.4)
+* [0.0.5](#0.0.5)
 
 <a name="0.0.1"></a>
 
@@ -32,3 +33,8 @@ FMUI(Finance Mobile UI) 移动端组件库
 * `select` element update className `fm-list-item` to `fm-list-item fm-list-item-combobox`
 * dialog widget bug fixed
 * toast widget only have content adapte widescreen
+
+<a name="0.0.5"></a>
+
+## v0.0.5(2016-07-18)
+* form.js select element error tips clear bug fixed
