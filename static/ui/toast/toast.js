@@ -40,6 +40,7 @@ var fmui = require('/static/ui/core/fmui');
         _init: function() {
             var me = this,
                 opts = me._options,
+                _width = Math.min($(window).width(), 750),
                 _map = {
                     success : '提交成功',
                     fail    : '提交失败',
@@ -59,7 +60,10 @@ var fmui = require('/static/ui/core/fmui');
 
                 $('body').append($tmpl);
 
-                'none' === opts.type && $tmpl.addClass('fm-toast-only-content');
+                'none' === opts.type && $tmpl.addClass('fm-toast-only-content').css({
+                    width: _width * 0.8,
+                    marginLeft: '-' + _width * 0.8 / 2 + 'px'
+                });
 
                 me._$tmpl = $tmpl;
 

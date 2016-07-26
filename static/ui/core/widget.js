@@ -145,8 +145,14 @@ var fmui = require('./event');
             $.each( this, function( i, el ) {
 
                 // 从缓存中取，没有则创建一个
-                obj = record( el, name ) || new fmui[ name ]( el,
-                        $.isPlainObject( opts ) ? opts : undefined );
+                //obj = record( el, name ) || new fmui[ name ]( el,$.isPlainObject( opts ) ? opts : undefined );
+                // 多次初始化覆盖options
+                if( record(el, name) ) {
+                    obj = record(el, name);
+                    obj._options = $.extend({}, obj._options, $.isPlainObject( opts ) ? opts : {});
+                }else {
+                    obj = new fmui[ name ]( el, $.isPlainObject( opts ) ? opts : undefined );    
+                }
 
                 // 取实例
                 if ( method === 'this' ) {

@@ -1,4 +1,4 @@
-require('./base-conf.js');
+//require('./base-conf.js');
 
 // 命名空间
 fis.config.set('namespace', 'fmui');

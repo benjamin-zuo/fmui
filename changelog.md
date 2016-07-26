@@ -7,6 +7,7 @@ FMUI(Finance Mobile UI) 移动端组件库
 * [0.0.3](#0.0.3)
 * [0.0.4](#0.0.4)
 * [0.0.5](#0.0.5)
+* [0.0.6](#0.0.6)
 
 <a name="0.0.1"></a>
 
@@ -38,3 +39,8 @@ FMUI(Finance Mobile UI) 移动端组件库
 
 ## v0.0.5(2016-07-18)
 * form.js select element error tips clear bug fixed
+
+<a name="0.0.6"></a>
+
+## v0.0.6(2016-07-26)
+* validate.js required config option bug fixed

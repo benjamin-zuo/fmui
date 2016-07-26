@@ -14,10 +14,14 @@ require('/static/ui/validate/validate');
 
 require('/static/ui/form/form');
 
-$('#phone').validate({
-    validType: 'tel'
-});
+$('input[name="a"]').on('click', function() {
+    var val = $(this).val();
 
+    var phone = $('#phone').validate({
+        required: val == 1,
+        validType: 'tel'
+    });  
+})
 
 var $form = $('#form');
 

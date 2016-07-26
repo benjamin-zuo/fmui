@@ -1,6 +1,6 @@
 {
     "name": "fmui",
-    "version": "0.0.1",
+    "version": "0.0.6",
     "description": "FMUI(Finance Mobile UI) 移动端（Mobile）组件库",
     "keywords": [
         "fis3",
@@ -19,14 +19,6 @@
         "url": "git://github.com/benjamin-zuo/fmui.git"
     },
     "dependencies": {
-        "fis3-arrow": "0.0.6",
-        "fis3-hook-amd": "~0.1.2",
-        "fis3-hook-commonjs": "~0.1.14",
-        "fis3-packager-deps-pack": "~0.0.1",
-        "fis-parser-utc": "0.0.2",
-        "fis-parser-marked": "0.0.6",
-        "fis3-server-jello": "~0.0.6",
-        "fis3-preprocessor-extlang": "~1.1.7"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"

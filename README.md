@@ -16,7 +16,13 @@ FMUI(Finance Mobile UI) 移动端组件库
 
 <a name="quick-start"></a>
 ## 环境搭建
-安装node,fis3
+安装node,[fisa](https://github.com/zuojj/fis3-arrow.git)
+```
+npm install -g fis3-arrow --registry=https://registry.npm.taobao.org
+$ sudo mkdir fisa-demo
+$ cd fisa-demo
+$ git clone https://github.com/zuojj/fmui.git
+```
 
 <a name="compile-preview"></a>
 ## 编译&预览

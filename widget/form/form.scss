@@ -17,3 +17,8 @@
     -webkit-border-image: url("http://maxzhang.github.io/examples/border1px/border.png") 2 0 stretch;
     border-image: url("http://maxzhang.github.io/examples/border1px/border.png") 2 0 stretch;
 }
+
+input[name="a"] {
+    -webkit-appearance: radio; 
+    margin-right: 5px;  
+}
