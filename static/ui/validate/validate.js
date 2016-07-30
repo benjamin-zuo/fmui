@@ -138,7 +138,7 @@ var fmui = require('/static/ui/core/fmui');
             }
 
             // required 处理
-            opts.required = $el[0].getAttribute('required') ? $el.prop('required') : opts.required;
+            opts.required = $el.prop('required') ? $el.prop('required') : opts.required;
 
             if(opts.required && !val) {
                 // 显示错误提示
