@@ -106,8 +106,9 @@ $('#citySelector, #addressResident').citySelect({
 ## 作者简介
 Benjamin, at Beijing
 您可以在以下地方找到我： 
-* [Github](https://github.com/benjamin-zuo)
+* [Github](https://github.com/zuojj)
 * [weibo] (http://weibo.com/cuew1987) 
+* [Twitter] (https://twitter.com/zuojj)
 * [Blog](http://www.zuojj.com)
 
 
