@@ -111,8 +111,8 @@ $('#citySelector, #addressResident').citySelect({
 煦涵（Benjamin）, at Beijing
 您可以在以下地方找到我： 
 * [Github](https://github.com/zuojj)
-* [Weibo] (http://weibo.com/cuew1987) 
-* [Twitter] (https://twitter.com/zuojj)
+* [Weibo](http://weibo.com/cuew1987) 
+* [Twitter](https://twitter.com/zuojj)
 * [Blog](http://www.zuojj.com)
 
 
