@@ -15,25 +15,28 @@ FMUI(Finance Mobile UI) 移动端组件库
 * [版权许可](#copyright-license)
 
 <a name="quick-start"></a>
-## 环境搭建
-安装node,[fisa](https://github.com/zuojj/fis3-arrow.git)
+## 初始化项目
+安装node,[fis3-arrow](https://github.com/zuojj/fis3-arrow.git)
+
 ```
 npm install -g fis3-arrow --registry=https://registry.npm.taobao.org
-$ sudo mkdir fisa-demo
-$ cd fisa-demo
+$ sudo mkdir project-demo
+$ cd project-demo
 $ git clone https://github.com/zuojj/fmui.git
 ```
 
 <a name="compile-preview"></a>
-## 编译&预览
-```
+## 编译 & 预览
+
+```bash
 cd fmui
 // 预览
-fis3 release 
+fisa release 
+
 // 实时预览
-fis3 release -wL
+fisa release -wL
 // 发布
-fis3 release prod
+fisa release prod
 ```
 
 <a name="widget-list"></a>
@@ -57,7 +60,8 @@ fis3 release prod
 
 <a name="widget-using"></a>
 ## 组件调用
-```
+
+```javascript
 // 上拉列表
 $.actionSheet({
     items: {
@@ -72,7 +76,7 @@ $.actionSheet({
     alert('=====destroy=====');
 });
 ```
-```
+```javascript
 // 省市区三级联动
 $('#citySelector, #addressResident').citySelect({
     url: '/test/city',
@@ -104,7 +108,7 @@ $('#citySelector, #addressResident').citySelect({
 
 <a name="author-introduce"></a>
 ## 作者简介
-Benjamin, at Beijing
+煦涵（Benjamin）, at Beijing
 您可以在以下地方找到我： 
 * [Github](https://github.com/zuojj)
 * [Weibo] (http://weibo.com/cuew1987) 
