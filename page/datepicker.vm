@@ -1,0 +1,11 @@
+#set($title="Datepicker 日期选择控件")
+
+#extends("layout.vm")
+
+    #block("body_content")
+    
+        #widget("/widget/datepicker/datepicker.vm")
+
+    #end
+
+#end

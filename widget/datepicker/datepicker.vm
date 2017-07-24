@@ -1,0 +1,17 @@
+<div class="fm-flexbox">
+    <div class="fm-flexbox-item">
+        <input type="text" id="dateStart">
+    </div>
+</div>
+<div class="fm-flexbox">
+    <div class="fm-flexbox-item">
+        <input type="text" id="dateEnd">
+    </div>
+</div>
+#script()
+    require(['./datepicker.js'])
+#end
+
+
+
+

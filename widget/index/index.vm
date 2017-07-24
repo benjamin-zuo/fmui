@@ -39,6 +39,12 @@
                 <span class="fm-icon-arrow-right"></span>
             </div>
         </a>
+        <a href="/datepicker" class="fm-list-item">
+            <div class="fm-list-content">Datepicker 日期控件</div>
+            <div class="fm-list-arrow">
+                <span class="fm-icon-arrow-right"></span>
+            </div>
+        </a>
         <a href="/dialog" class="fm-list-item">
             <div class="fm-list-content">Dialog 弹窗</div>
             <div class="fm-list-arrow">

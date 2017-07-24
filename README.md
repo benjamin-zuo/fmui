@@ -44,6 +44,7 @@ fis3 release prod
 *   Checkbox        单复选框
 *   CitySelect      省市区三级联动
 *   Countdown       倒计时
+*   Datepicker      日期控件
 *   Dialog          弹窗
 *   Form            表单
 *   List            列表
