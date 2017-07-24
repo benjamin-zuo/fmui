@@ -59,6 +59,9 @@ fisa release prod
 *   Toast           Toast气泡
 *   Validate        表单校验
 
+
+![FMUI组件列表](https://github.com/zuojj/fmui/blob/master/fmui.png)
+
 <a name="widget-using"></a>
 ## 组件调用
 
