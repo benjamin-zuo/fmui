@@ -1,9 +1,10 @@
 {
     "name": "fmui",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "FMUI(Finance Mobile UI) 移动端（Mobile）组件库",
     "keywords": [
         "fis3",
+        "fisa",
         "jello",
         "arrow",
         "fmui"
@@ -21,6 +22,10 @@
     "dependencies": {
     },
     "scripts": {
+        "server": "fisa server start",
+        "dev": "fisa release",
+        "build": "fisa release prod",
+        "clean": "fisa server clean",
         "test": "echo \"Error: no test specified\" && exit 1"
     }
 }
